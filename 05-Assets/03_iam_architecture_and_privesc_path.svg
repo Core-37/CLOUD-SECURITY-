@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" style="background-color:#0b0f19; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+  <defs>
+    <marker id="arrB" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#60a5fa"/></marker>
+    <marker id="arrR" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#f87171"/></marker>
+    <marker id="arrG" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#34d399"/></marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="25" y="20" width="1150" height="78" rx="14" fill="#131b2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="50" y="54" font-size="22" font-weight="bold" fill="#60a5fa">🔑 IAM В ОБЛАКЕ: АРХИТЕКТУРА, ЛОГИКА ОЦЕНКИ ПРАВ И ПУТЬ ВЗЛОМА (PRIVESC)</text>
+  <text x="50" y="78" font-size="13.5" fill="#94a3b8">«В облаке IAM — это новый периметровый файрвол. Взломали IAM = получили всё облако за 1 минуту.»</text>
+
+  <!-- Left Panel: IAM Building Blocks -->
+  <g transform="translate(25, 115)">
+    <rect width="560" height="330" rx="12" fill="#111827" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="16" y="14" width="528" height="32" rx="7" fill="#2563eb"/>
+    <text x="280" y="35" font-size="14.5" font-weight="bold" fill="#fff" text-anchor="middle">1. ИЗ ЧЕГО СОСТОИТ IAM (АНАЛОГИЯ ОФИСНОГО ПРОПУСКА)</text>
+
+    <rect x="18" y="60" width="250" height="82" rx="8" fill="#0d1117" stroke="#334155"/>
+    <text x="30" y="82" font-size="13" font-weight="bold" fill="#93c5fd">👤 IAM User (Сотрудник)</text>
+    <text x="30" y="102" font-size="11.5" fill="#cbd5e1">Постоянный аккаунт человека +</text>
+    <text x="30" y="119" font-size="11.5" fill="#cbd5e1">пароль или Access Key (AKIA...)</text>
+    <text x="30" y="135" font-size="11" fill="#fbbf24">⚠️ Для серверов НЕ использовать!</text>
+
+    <rect x="292" y="60" width="250" height="82" rx="8" fill="#0d1117" stroke="#334155"/>
+    <text x="304" y="82" font-size="13" font-weight="bold" fill="#34d399">🎭 IAM Role (Временная шляпа)</text>
+    <text x="304" y="102" font-size="11.5" fill="#cbd5e1">Без постоянного пароля! Выдаёт</text>
+    <text x="304" y="119" font-size="11.5" fill="#cbd5e1">временный токен STS (ASIA...)</text>
+    <text x="304" y="135" font-size="11" fill="#34d399">✔ Надевается на EC2/Lambda</text>
+
+    <rect x="18" y="154" width="524" height="162" rx="8" fill="#090d16" stroke="#475569"/>
+    <text x="30" y="176" font-size="12.5" font-weight="bold" fill="#fde047">📜 Как выглядит IAM Policy (Правило в формате JSON):</text>
+    <text x="30" y="198" font-family="monospace" font-size="11.5" fill="#cbd5e1">{ "Effect": <tspan fill="#4ade80">"Allow"</tspan>,                     <tspan fill="#64748b">// Разрешить (или "Deny")</tspan></text>
+    <text x="30" y="218" font-family="monospace" font-size="11.5" fill="#cbd5e1">  "Action": [<tspan fill="#38bdf8">"s3:GetObject"</tspan>],             <tspan fill="#64748b">// ТОЛЬКО скачивание</tspan></text>
+    <text x="30" y="238" font-family="monospace" font-size="11.5" fill="#cbd5e1">  "Resource": <tspan fill="#c084fc">"arn:aws:s3:::docs-bucket/*"</tspan>,<tspan fill="#64748b">// ТОЛЬКО в этой папке</tspan></text>
+    <text x="30" y="258" font-family="monospace" font-size="11.5" fill="#cbd5e1">  "Condition": { "Bool": {<tspan fill="#fbbf24">"aws:MultiFactorAuthPresent":"true"</tspan>} } }</text>
+    <text x="30" y="286" font-size="11.5" fill="#f87171">🔥 Если видишь "Action": "*" и "Resource": "*" — это ДЫРА (Права Бога)!</text>
+    <text x="30" y="304" font-size="11.5" fill="#94a3b8">Запомни золотое правило оценки IAM: По умолчанию ВСЁ ЗАПРЕЩЕНО ➔ Явный DENY бьёт любой ALLOW!</text>
+  </g>
+
+  <!-- Right Panel: Decision Engine Flow -->
+  <g transform="translate(610, 115)">
+    <rect width="565" height="330" rx="12" fill="#111827" stroke="#10b981" stroke-width="2"/>
+    <rect x="16" y="14" width="533" height="32" rx="7" fill="#059669"/>
+    <text x="282" y="35" font-size="14.5" font-weight="bold" fill="#fff" text-anchor="middle">2. АЛГОРИТМ: КАК ОБЛАКО ПРОВЕРЯЕТ КАЖДЫЙ ЗАПРОС</text>
+
+    <rect x="145" y="64" width="275" height="44" rx="8" fill="#1e293b" stroke="#60a5fa"/>
+    <text x="282" y="91" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Запрос: User ➔ s3:DeleteObject</text>
+    <line x1="282" y1="108" x2="282" y2="128" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrB)"/>
+
+    <rect x="85" y="132" width="395" height="46" rx="8" fill="#1f1215" stroke="#ef4444"/>
+    <text x="282" y="160" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">Шаг 1: Есть ли где-то явный DENY (Запрет)?</text>
+
+    <line x1="480" y1="155" x2="510" y2="155" stroke="#f87171" stroke-width="2"/>
+    <text x="515" y="150" font-size="11" font-weight="bold" fill="#f87171">ДА</text>
+    <text x="515" y="166" font-size="11" font-weight="bold" fill="#f87171">➔ БЛОК</text>
+
+    <line x1="282" y1="178" x2="282" y2="200" stroke="#34d399" stroke-width="2" marker-end="url(#arrG)"/>
+    <text x="292" y="194" font-size="11" fill="#34d399">НЕТ</text>
+
+    <rect x="85" y="204" width="395" height="46" rx="8" fill="#111d18" stroke="#10b981"/>
+    <text x="282" y="232" font-size="13" font-weight="bold" fill="#6ee7b7" text-anchor="middle">Шаг 2: Есть ли явный ALLOW (Разрешение)?</text>
+
+    <line x1="480" y1="227" x2="510" y2="227" stroke="#f87171" stroke-width="2"/>
+    <text x="515" y="222" font-size="11" font-weight="bold" fill="#f87171">НЕТ</text>
+    <text x="515" y="238" font-size="11" font-weight="bold" fill="#f87171">➔ БЛОК</text>
+
+    <line x1="282" y1="250" x2="282" y2="272" stroke="#34d399" stroke-width="2" marker-end="url(#arrG)"/>
+    <text x="292" y="266" font-size="11" fill="#34d399">ДА</text>
+
+    <rect x="135" y="276" width="295" height="38" rx="8" fill="#065f46" stroke="#34d399"/>
+    <text x="282" y="300" font-size="13.5" font-weight="bold" fill="#ffffff" text-anchor="middle">✅ ДОСТУП РАЗРЕШЁН (Allow)</text>
+  </g>
+
+  <!-- Bottom Panel: IAM Privilege Escalation Attack Path -->
+  <g transform="translate(25, 465)">
+    <rect width="1150" height="270" rx="12" fill="#160f14" stroke="#ef4444" stroke-width="2"/>
+    <rect x="16" y="14" width="1118" height="34" rx="8" fill="#dc2626"/>
+    <text x="575" y="36" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">3. ПУТЬ АТАКИ: IAM PRIVILEGE ESCALATION (КАК «ОБЫЧНЫЙ» СТАЖЁР СТАНОВИТСЯ АДМИНОМ ОБЛАКА)</text>
+
+    <!-- 4 Step Path -->
+    <rect x="24" y="68" width="245" height="118" rx="10" fill="#0d1117" stroke="#f87171" stroke-width="1.5"/>
+    <text x="146" y="92" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">Шаг 1. Слабые ключи</text>
+    <text x="36" y="116" font-size="12" fill="#cbd5e1">Хакер находит ключ стажёра</text>
+    <text x="36" y="135" font-size="12" fill="#cbd5e1">в GitHub. У юзера нет прав</text>
+    <text x="36" y="154" font-size="12" fill="#cbd5e1">админа, но есть 2 права:</text>
+    <text x="36" y="174" font-family="monospace" font-size="11" fill="#fde047">iam:PassRole + ec2:Run</text>
+
+    <line x1="272" y1="127" x2="305" y2="127" stroke="#f87171" stroke-width="3" marker-end="url(#arrR)"/>
+
+    <rect x="310" y="68" width="255" height="118" rx="10" fill="#0d1117" stroke="#f87171" stroke-width="1.5"/>
+    <text x="437" y="92" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">Шаг 2. Запуск с чужой Ролью</text>
+    <text x="322" y="116" font-size="12" fill="#cbd5e1">Хакер создаёт новый сервер</text>
+    <text x="322" y="135" font-size="12" fill="#cbd5e1">EC2 (или Lambda) и через</text>
+    <text x="322" y="154" font-size="12" fill="#cbd5e1"><tspan font-family="monospace" fill="#38bdf8">PassRole</tspan> вешает на него</text>
+    <text x="322" y="174" font-size="12" font-weight="bold" fill="#fbbf24">готовую Admin-роль!</text>
+
+    <line x1="568" y1="127" x2="601" y2="127" stroke="#f87171" stroke-width="3" marker-end="url(#arrR)"/>
+
+    <rect x="606" y="68" width="255" height="118" rx="10" fill="#0d1117" stroke="#f87171" stroke-width="1.5"/>
+    <text x="733" y="92" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">Шаг 3. Кража токена Роли</text>
+    <text x="618" y="116" font-size="12" fill="#cbd5e1">Заходит по SSH на свой</text>
+    <text x="618" y="135" font-size="12" fill="#cbd5e1">новый сервер и спрашивает</text>
+    <text x="618" y="154" font-size="12" fill="#cbd5e1">у IMDS ключи его новой роли:</text>
+    <text x="618" y="174" font-family="monospace" font-size="11" fill="#34d399">curl 169.254.169.254/...</text>
+
+    <line x1="864" y1="127" x2="897" y2="127" stroke="#f87171" stroke-width="3" marker-end="url(#arrR)"/>
+
+    <rect x="902" y="68" width="224" height="118" rx="10" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+    <text x="1014" y="92" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">Шаг 4. ПОЛНЫЙ ЗАХВАТ</text>
+    <text x="914" y="118" font-size="12" fill="#fecaca">У стажёра теперь</text>
+    <text x="914" y="138" font-size="12" font-weight="bold" fill="#fde047">AdministratorAccess!</text>
+    <text x="914" y="158" font-size="12" fill="#fecaca">Аналог: «охранник без</text>
+    <text x="914" y="176" font-size="12" fill="#fecaca">ключей выписал пропуск себе»</text>
+
+    <!-- Defense box -->
+    <rect x="24" y="202" width="1102" height="52" rx="8" fill="#06281e" stroke="#10b981"/>
+    <text x="40" y="224" font-size="12.5" font-weight="bold" fill="#34d399">🛡️ ЗАЩИТА: 1) Ограничить iam:PassRole только узкими ролями в Resource (НЕ "*"); 2) Запретить iam:CreatePolicyVersion и SetDefaultPolicyVersion;</text>
+    <text x="40" y="244" font-size="12.5" fill="#a7f3d0">3) Использовать Permission Boundaries (потолок прав) и проверять IAM сканерами Prowler / Pacu / PMAPPER.</text>
+  </g>
+</svg>

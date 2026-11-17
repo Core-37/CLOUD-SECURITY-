@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" style="background-color:#0b0f19; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+  <defs>
+    <marker id="arrP" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#f472b6"/></marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="25" y="18" width="1150" height="78" rx="14" fill="#131b2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="50" y="52" font-size="22" font-weight="bold" fill="#f472b6">🐳 КОНТЕЙНЕРЫ DOCKER И KUBERNETES: МОДЕЛЬ 4C И ПУТИ ПОБЕГА (BREAKOUT)</text>
+  <text x="50" y="78" font-size="13.5" fill="#94a3b8">Как устроен кластер K8s изнутри, почему опасен root в Docker и что закрывать по шагам</text>
+
+  <!-- Left: 4C Model of Cloud Native Security -->
+  <g transform="translate(25, 114)">
+    <rect width="510" height="365" rx="12" fill="#111827" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="14" y="14" width="482" height="32" rx="7" fill="#2563eb"/>
+    <text x="255" y="35" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">1. МОДЕЛЬ 4C БЕЗОПАСНОСТИ (МАТРЁШКА KUBERNETES)</text>
+
+    <!-- Nested layers -->
+    <rect x="24" y="60" width="462" height="288" rx="12" fill="#0f172a" stroke="#06b6d4" stroke-width="2"/>
+    <text x="38" y="84" font-size="13.5" font-weight="bold" fill="#22d3ee">1. CLOUD (Облако) — Защита IAM, VPC, KMS, Firewall</text>
+
+    <rect x="44" y="98" width="422" height="232" rx="12" fill="#151b2d" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="58" y="122" font-size="13.5" font-weight="bold" fill="#c084fc">2. CLUSTER (K8s) — RBAC, шифр etcd, NetworkPolicy</text>
+
+    <rect x="64" y="136" width="382" height="176" rx="12" fill="#1d1426" stroke="#ec4899" stroke-width="2"/>
+    <text x="78" y="160" font-size="13.5" font-weight="bold" fill="#f472b6">3. CONTAINER — Не root, скан Trivy, без --privileged</text>
+
+    <rect x="84" y="176" width="342" height="118" rx="12" fill="#0d1117" stroke="#10b981" stroke-width="2"/>
+    <text x="255" y="204" font-size="14" font-weight="bold" fill="#34d399" text-anchor="middle">4. CODE (Твой код и зависимости)</text>
+    <text x="255" y="228" font-size="12" fill="#cbd5e1" text-anchor="middle">• Нет секретов в коде (Gitleaks)</text>
+    <text x="255" y="248" font-size="12" fill="#cbd5e1" text-anchor="middle">• Нет SQLi / SSRF / RCE в приложении</text>
+    <text x="255" y="268" font-size="12" fill="#cbd5e1" text-anchor="middle">• HTTPS + минимальные права</text>
+  </g>
+
+  <!-- Right: Kubernetes Architecture -->
+  <g transform="translate(555, 114)">
+    <rect width="620" height="365" rx="12" fill="#111827" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="14" y="14" width="592" height="32" rx="7" fill="#7c3aed"/>
+    <text x="310" y="35" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">2. КАК УСТРОЕН KUBERNETES (МОЗГ И РАБОЧИЕ СЕРВЕРЫ)</text>
+
+    <!-- Control Plane -->
+    <rect x="20" y="62" width="275" height="284" rx="10" fill="#171429" stroke="#a855f7"/>
+    <text x="157" y="86" font-size="13.5" font-weight="bold" fill="#d8b4fe" text-anchor="middle">🧠 Control Plane (Мозг)</text>
+
+    <rect x="34" y="102" width="247" height="58" rx="7" fill="#0d1117" stroke="#38bdf8"/>
+    <text x="157" y="123" font-size="12.5" font-weight="bold" fill="#38bdf8" text-anchor="middle">kube-apiserver (:6443)</text>
+    <text x="157" y="142" font-size="11" fill="#cbd5e1" text-anchor="middle">Главная дверь (kubectl стучится сюда)</text>
+
+    <rect x="34" y="170" width="247" height="58" rx="7" fill="#0d1117" stroke="#f87171"/>
+    <text x="157" y="191" font-size="12.5" font-weight="bold" fill="#fca5a5" text-anchor="middle">etcd (Сейф кластера!)</text>
+    <text x="157" y="210" font-size="11" fill="#cbd5e1" text-anchor="middle">База ВСЕХ секретов K8s (шифровать!)</text>
+
+    <rect x="34" y="238" width="247" height="90" rx="7" fill="#0d1117" stroke="#475569"/>
+    <text x="157" y="260" font-size="12" font-weight="bold" fill="#fde047" text-anchor="middle">RBAC + Admission Controller</text>
+    <text x="157" y="280" font-size="11" fill="#cbd5e1" text-anchor="middle">Проверка: кто имеет право</text>
+    <text x="157" y="298" font-size="11" fill="#cbd5e1" text-anchor="middle">запускать Pod и с какими правами</text>
+    <text x="157" y="316" font-size="11" fill="#34d399" text-anchor="middle">(OPA Gatekeeper / Kyverno)</text>
+
+    <!-- Worker Node -->
+    <rect x="320" y="62" width="280" height="284" rx="10" fill="#0f1924" stroke="#06b6d4"/>
+    <text x="460" y="86" font-size="13.5" font-weight="bold" fill="#22d3ee" text-anchor="middle">⚙️ Worker Node (Сервер-работяга)</text>
+
+    <rect x="334" y="102" width="252" height="58" rx="7" fill="#0d1117" stroke="#22d3ee"/>
+    <text x="460" y="123" font-size="12.5" font-weight="bold" fill="#67e8f9" text-anchor="middle">kubelet (Прораб на ноде)</text>
+    <text x="460" y="142" font-size="11" fill="#cbd5e1" text-anchor="middle">⚠️ Закрыть порт 10250 от анонимов!</text>
+
+    <rect x="334" y="172" width="252" height="156" rx="7" fill="#0d1117" stroke="#10b981"/>
+    <text x="460" y="196" font-size="12.5" font-weight="bold" fill="#34d399" text-anchor="middle">📦 Pods (Контейнеры)</text>
+    <text x="348" y="220" font-size="11.5" fill="#cbd5e1">• Pod A (Frontend) ➔ NetworkPolicy</text>
+    <text x="348" y="240" font-size="11.5" fill="#cbd5e1">• Pod B (Backend) ➔ Non-root user</text>
+    <text x="348" y="264" font-size="11.5" fill="#f87171">• Внутри каждого Pod по умолчанию</text>
+    <text x="348" y="282" font-size="11.5" fill="#f87171">  лежит ServiceAccount токен!</text>
+    <text x="348" y="306" font-size="11" fill="#34d399">  Отключай: automountToken: false</text>
+  </g>
+
+  <!-- Bottom: 3 Classic Container Escape Paths & Defenses -->
+  <g transform="translate(25, 498)">
+    <rect width="1150" height="242" rx="12" fill="#181014" stroke="#ef4444" stroke-width="2"/>
+    <rect x="16" y="14" width="1118" height="32" rx="7" fill="#dc2626"/>
+    <text x="575" y="35" font-size="14.5" font-weight="bold" fill="#ffffff" text-anchor="middle">3. ТОП-3 ПУТИ ПОБЕГА ИЗ КОНТЕЙНЕРА НА ХОСТ-СЕРВЕР И КАК ИХ ЗАКРЫТЬ</text>
+
+    <rect x="24" y="62" width="352" height="162" rx="10" fill="#0d1117" stroke="#f87171"/>
+    <text x="200" y="86" font-size="13.5" font-weight="bold" fill="#fca5a5" text-anchor="middle">🔥 Путь 1: Флаг --privileged</text>
+    <text x="36" y="110" font-size="12" fill="#cbd5e1">Контейнер получает прямой доступ ко</text>
+    <text x="36" y="128" font-size="12" fill="#cbd5e1">всем дискам и устройствам хоста (<tspan font-family="monospace">/dev</tspan>).</text>
+    <text x="36" y="150" font-size="11.5" fill="#fde047">Атака: монтируем диск хоста и читаем</text>
+    <text x="36" y="168" font-family="monospace" font-size="11" fill="#fde047">mount /dev/sda1 /mnt &amp;&amp; chroot /mnt</text>
+    <text x="36" y="198" font-size="12" font-weight="bold" fill="#34d399">🛡️ Защита: privileged: false + Pod</text>
+    <text x="36" y="214" font-size="11.5" fill="#a7f3d0">   Security Standards (Restricted)</text>
+
+    <rect x="399" y="62" width="352" height="162" rx="10" fill="#0d1117" stroke="#f87171"/>
+    <text x="575" y="86" font-size="13.5" font-weight="bold" fill="#fca5a5" text-anchor="middle">🔥 Путь 2: Проброс docker.sock</text>
+    <text x="411" y="110" font-size="12" fill="#cbd5e1">Когда в контейнер пробросили сокет</text>
+    <text x="411" y="128" font-family="monospace" font-size="11.5" fill="#f87171">-v /var/run/docker.sock:/var/run/...</text>
+    <text x="411" y="150" font-size="11.5" fill="#fde047">Атака: изнутри контейнера запускаем</text>
+    <text x="411" y="168" font-size="11.5" fill="#fde047">новый контейнер с корневой папкой /</text>
+    <text x="411" y="198" font-size="12" font-weight="bold" fill="#34d399">🛡️ Защита: НИКОГДА не монтируй</text>
+    <text x="411" y="214" font-size="11.5" fill="#a7f3d0">   docker.sock внутрь прод-контейнеров!</text>
+
+    <rect x="774" y="62" width="352" height="162" rx="10" fill="#0d1117" stroke="#f87171"/>
+    <text x="950" y="86" font-size="13.5" font-weight="bold" fill="#fca5a5" text-anchor="middle">🔥 Путь 3: Root + Дырявый образ</text>
+    <text x="786" y="110" font-size="12" fill="#cbd5e1">В образе Ubuntu старый пакет с CVE</text>
+    <text x="786" y="128" font-size="12" fill="#cbd5e1">или приложение запущено от <tspan font-family="monospace" fill="#f87171">UID 0 (root)</tspan>.</text>
+    <text x="786" y="150" font-size="11.5" fill="#fde047">Проверка: <tspan font-family="monospace">trivy image myapp:1.0</tspan></text>
+    <text x="786" y="168" font-size="11.5" fill="#cbd5e1">покажет все критические CVE до запуска!</text>
+    <text x="786" y="198" font-size="12" font-weight="bold" fill="#34d399">🛡️ Защита: USER 10001 + readOnlyRootFS</text>
+    <text x="786" y="214" font-size="11.5" fill="#a7f3d0">   + минимальный образ Distroless/Alpine</text>
+  </g>
+</svg>

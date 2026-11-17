@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" style="background-color:#0b0f19; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+  <defs>
+    <marker id="a12" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#34d399"/></marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="25" y="18" width="1150" height="78" rx="14" fill="#131b2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="50" y="52" font-size="22" font-weight="bold" fill="#34d399">💸 БЕСПЛАТНАЯ ЗАМЕНА ПЛАТНЫМ СЕРТИФИКАТАМ И ПУТЬ К ПОРТФОЛИО (ZERO-COST)</text>
+  <text x="50" y="78" font-size="13.5" fill="#94a3b8">Философия Marius Poskus: «Proof over Paper» — сначала бесплатные бейджи + 5 проектов на GitHub, потом уже платные экзамены!</text>
+
+  <!-- Left: Paid vs Free Matrix -->
+  <g transform="translate(25, 114)">
+    <rect width="675" height="445" rx="12" fill="#111827" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="14" y="14" width="647" height="32" rx="7" fill="#1d4ed8"/>
+    <text x="337" y="35" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">1. ЧЕМ БЕСПЛАТНО ЗАМЕНИТЬ ПЛАТНЫЕ СЕРТИФИКАТЫ НА СТАРТЕ ($0 ВМЕСТО $2,000+)</text>
+
+    <!-- Item 1 -->
+    <rect x="18" y="60" width="639" height="68" rx="8" fill="#0d1117" stroke="#334155"/>
+    <text x="30" y="84" font-size="12.5" font-weight="bold" fill="#f87171">❌ CompTIA Security+ (~$404) / Network+ (~$369)</text>
+    <text x="30" y="106" font-size="12" fill="#34d399">✅ БЕСПЛАТНАЯ ЗАМЕНА: <tspan font-weight="bold">Professor Messer (полный курс YouTube)</tspan> + <tspan font-weight="bold">Fortinet FCF/NSE 1–3</tspan> (бесплатный бейдж!)</text>
+    <text x="30" y="122" font-size="11" fill="#94a3b8">+ ISC2 CC (бесплатные материалы обучения на сайте ISC2) + TryHackMe бесплатные комнаты</text>
+
+    <!-- Item 2 -->
+    <rect x="18" y="136" width="639" height="68" rx="8" fill="#0d1117" stroke="#334155"/>
+    <text x="30" y="160" font-size="12.5" font-weight="bold" fill="#f87171">❌ AWS Cloud Practitioner ($100) &amp; AWS Security Specialty ($300)</text>
+    <text x="30" y="182" font-size="12" fill="#34d399">✅ БЕСПЛАТНАЯ ЗАМЕНА: <tspan font-weight="bold">AWS Skill Builder (Knowledge Badges + Cloud Quest Cloud Practitioner)</tspan> + <tspan font-weight="bold">AWS Educate</tspan></text>
+    <text x="30" y="198" font-size="11" fill="#94a3b8">+ бесплатный аудит курса AWS Security Engineering на Coursera (Audit) + flAWS.cloud + LocalStack дома</text>
+
+    <!-- Item 3 -->
+    <rect x="18" y="212" width="639" height="68" rx="8" fill="#0d1117" stroke="#334155"/>
+    <text x="30" y="236" font-size="12.5" font-weight="bold" fill="#f87171">❌ Microsoft AZ-900 / AZ-500 / SC-200 (~$165 каждый)</text>
+    <text x="30" y="258" font-size="12" fill="#34d399">✅ БЕСПЛАТНАЯ ЗАМЕНА: <tspan font-weight="bold">Microsoft Learn</tspan> + <tspan font-weight="bold">Microsoft Applied Skills</tspan> (бесплатный экзамен-лаба с бейджем!)</text>
+    <text x="30" y="274" font-size="11" fill="#94a3b8">+ Microsoft Virtual Training Days (периодически дают ваучеры на скидку 50–100% на фундамент)</text>
+
+    <!-- Item 4 -->
+    <rect x="18" y="288" width="639" height="68" rx="8" fill="#0d1117" stroke="#334155"/>
+    <text x="30" y="312" font-size="12.5" font-weight="bold" fill="#f87171">❌ CCSK / CCSP ($395–$599) — Архитектура и GRC облаков</text>
+    <text x="30" y="334" font-size="12" fill="#34d399">✅ БЕСПЛАТНАЯ ЗАМЕНА: <tspan font-weight="bold">CSA Cloud Security Guidance v4/v5 (официальный PDF бесплатен!)</tspan> + <tspan font-weight="bold">Qualys VM Foundation</tspan></text>
+    <text x="30" y="350" font-size="11" fill="#94a3b8">+ Курсы Coursera «Cloud Computing Security» (кнопка Audit бесплатно)</text>
+
+    <!-- Item 5 -->
+    <rect x="18" y="364" width="639" height="68" rx="8" fill="#0d1117" stroke="#334155"/>
+    <text x="30" y="388" font-size="12.5" font-weight="bold" fill="#f87171">❌ Дорогие курсы практического пентеста облаков ($1,500+)</text>
+    <text x="30" y="410" font-size="12" fill="#34d399">✅ БЕСПЛАТНАЯ ЗАМЕНА: <tspan font-weight="bold">flAWS.cloud + flAWS2.cloud + PwnedLabs (Free Labs) + Kubernetes Goat + CloudGoat</tspan></text>
+    <text x="30" y="426" font-size="11" fill="#94a3b8">+ 2–3 бесплатные виртуальные стажировки Forage (AWS Architecture, Datacom, Mastercard, AIG)</text>
+  </g>
+
+  <!-- Right: 5 Portfolio Projects -->
+  <g transform="translate(720, 114)">
+    <rect width="455" height="445" rx="12" fill="#111827" stroke="#10b981" stroke-width="2"/>
+    <rect x="14" y="14" width="427" height="32" rx="7" fill="#059669"/>
+    <text x="227" y="35" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">2. 5 ПРОЕКТОВ ПОРТФОЛИО НА GITHUB</text>
+
+    <rect x="18" y="60" width="419" height="66" rx="8" fill="#06281e" stroke="#10b981"/>
+    <text x="30" y="82" font-size="13" font-weight="bold" fill="#6ee7b7">🚀 Проект 1: Secure VPC + Terraform + Checkov</text>
+    <text x="30" y="102" font-size="11.5" fill="#cbd5e1">Код безопасной облачной сети в Terraform с IMDSv2,</text>
+    <text x="30" y="118" font-size="11.5" fill="#cbd5e1">закрытым S3 и автопроверкой в GitHub Actions (Checkov).</text>
+
+    <rect x="18" y="136" width="419" height="66" rx="8" fill="#0d1424" stroke="#38bdf8"/>
+    <text x="30" y="158" font-size="13" font-weight="bold" fill="#7dd3fc">🐍 Проект 2: Python Cloud IAM &amp; S3 Auditor</text>
+    <text x="30" y="178" font-size="11.5" fill="#cbd5e1">Скрипт аудита JSON-политик на избыточные права (*),</text>
+    <text x="30" y="194" font-size="11.5" fill="#cbd5e1">открытые бакеты и шифрование с генерацией отчёта.</text>
+
+    <rect x="18" y="212" width="419" height="66" rx="8" fill="#1b1218" stroke="#ef4444"/>
+    <text x="30" y="234" font-size="13" font-weight="bold" fill="#fca5a5">💥 Проект 3: Разборы flAWS / SSRF ➔ IMDSv2 Lab</text>
+    <text x="30" y="254" font-size="11.5" fill="#cbd5e1">Writeups всех 6 уровней flAWS.cloud + своя лаба</text>
+    <text x="30" y="270" font-size="11.5" fill="#cbd5e1">демонстрации атаки SSRF на IMDSv1 и защиты IMDSv2.</text>
+
+    <rect x="18" y="288" width="419" height="66" rx="8" fill="#171429" stroke="#a855f7"/>
+    <text x="30" y="310" font-size="13" font-weight="bold" fill="#d8b4fe">🐳 Проект 4: Hardened Docker + K8s + Trivy CI</text>
+    <text x="30" y="330" font-size="11.5" fill="#cbd5e1">Пайплайн, который проверяет Dockerfile (non-root),</text>
+    <text x="30" y="346" font-size="11.5" fill="#cbd5e1">сканирует образ в Trivy и запрещает --privileged.</text>
+
+    <rect x="18" y="364" width="419" height="68" rx="8" fill="#1a170e" stroke="#f59e0b"/>
+    <text x="30" y="386" font-size="13" font-weight="bold" fill="#fde047">🛡️ Проект 5: Cloud SIEM + Incident Playbook</text>
+    <text x="30" y="406" font-size="11.5" fill="#cbd5e1">Готовый отчёт аудита CIS (Prowler) + план реакции на</text>
+    <text x="30" y="422" font-size="11.5" fill="#cbd5e1">компрометацию ключа + KQL-запросы для Sentinel.</text>
+  </g>
+
+  <!-- Bottom Career Path -->
+  <rect x="25" y="578" width="1150" height="160" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <text x="50" y="610" font-size="15.5" font-weight="bold" fill="#fbbf24">🎯 РЕАЛИСТИЧНАЯ ЛЕСТНИЦА К ОФФЕРУ В CLOUD SECURITY (БЕЗ МИФОВ):</text>
+
+  <rect x="45" y="630" width="235" height="88" rx="9" fill="#111827" stroke="#38bdf8"/>
+  <text x="162" y="656" font-size="13.5" font-weight="bold" fill="#38bdf8" text-anchor="middle">1. База ИТ + Облако</text>
+  <text x="162" y="678" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Linux + Сети + AWS/Azure</text>
+  <text x="162" y="698" font-size="11.5" fill="#94a3b8" text-anchor="middle">+ Бесплатные бейджи</text>
+
+  <line x1="282" y1="674" x2="322" y2="674" stroke="#34d399" stroke-width="3" marker-end="url(#a12)"/>
+
+  <rect x="326" y="630" width="255" height="88" rx="9" fill="#111827" stroke="#a855f7"/>
+  <text x="453" y="656" font-size="13.5" font-weight="bold" fill="#c084fc" text-anchor="middle">2. Доказательства (GitHub)</text>
+  <text x="453" y="678" font-size="11.5" fill="#cbd5e1" text-anchor="middle">5 проектов + Forage +</text>
+  <text x="453" y="698" font-size="11.5" fill="#94a3b8" text-anchor="middle">Writeups (flAWS / Lab)</text>
+
+  <line x1="583" y1="674" x2="623" y2="674" stroke="#34d399" stroke-width="3" marker-end="url(#a12)"/>
+
+  <rect x="627" y="630" width="250" height="88" rx="9" fill="#111827" stroke="#f59e0b"/>
+  <text x="752" y="656" font-size="13.5" font-weight="bold" fill="#fcd34d" text-anchor="middle">3. Первая точка входа</text>
+  <text x="752" y="678" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Junior SOC / Cloud Ops /</text>
+  <text x="752" y="698" font-size="11.5" fill="#94a3b8" text-anchor="middle">Junior DevOps / Junior AppSec</text>
+
+  <line x1="879" y1="674" x2="919" y2="674" stroke="#34d399" stroke-width="3" marker-end="url(#a12)"/>
+
+  <rect x="923" y="630" width="232" height="88" rx="9" fill="#06281e" stroke="#10b981" stroke-width="2"/>
+  <text x="1039" y="656" font-size="13.5" font-weight="bold" fill="#34d399" text-anchor="middle">4. Cloud Security Eng!</text>
+  <text x="1039" y="678" font-size="11.5" fill="#e2e8f0" text-anchor="middle">Через 6–12 мес опыта</text>
+  <text x="1039" y="698" font-size="11.5" fill="#fde047" text-anchor="middle">(компания оплатит серты!)</text>
+</svg>

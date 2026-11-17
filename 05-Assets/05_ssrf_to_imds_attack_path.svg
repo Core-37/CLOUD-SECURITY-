@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" style="background-color:#0b0f19; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+  <defs>
+    <marker id="arrRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#f87171"/></marker>
+    <marker id="arrGrn" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#34d399"/></marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="25" y="18" width="1150" height="80" rx="14" fill="#18121b" stroke="#7f1d1d" stroke-width="2"/>
+  <text x="50" y="52" font-size="22" font-weight="bold" fill="#f87171">💥 КАК ВЗЛОМАЛИ CAPITAL ONE (100 МЛН ДАННЫХ): ПУТЬ SSRF ➔ IMDSv1</text>
+  <text x="50" y="78" font-size="13.5" fill="#cbd5e1">И почему включение IMDSv2 полностью останавливает эту атаку за 1 строчку в Terraform!</text>
+
+  <!-- Top Section: Attack Path (IMDSv1) -->
+  <rect x="25" y="114" width="1150" height="335" rx="14" fill="#140c10" stroke="#ef4444" stroke-width="2"/>
+  <rect x="40" y="128" width="1120" height="32" rx="7" fill="#b91c1c"/>
+  <text x="600" y="149" font-size="14.5" font-weight="bold" fill="#ffffff" text-anchor="middle">❌ СЦЕНАРИЙ АТАКИ (КОГДА НА СЕРВЕРЕ ВКЛЮЧЕН УСТАРЕВШИЙ IMDSv1)</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(42, 178)">
+    <rect width="235" height="245" rx="10" fill="#0d1117" stroke="#f87171"/>
+    <text x="117" y="28" font-size="14" font-weight="bold" fill="#fca5a5" text-anchor="middle">1. Хакер находит SSRF</text>
+    <text x="14" y="56" font-size="12" fill="#cbd5e1">На сайте есть функция</text>
+    <text x="14" y="74" font-size="12" fill="#cbd5e1">загрузки фото по ссылке:</text>
+    <rect x="12" y="88" width="211" height="66" rx="6" fill="#020617" stroke="#475569"/>
+    <text x="18" y="108" font-family="monospace" font-size="10.5" fill="#fde047">/fetch?url=http://</text>
+    <text x="18" y="124" font-family="monospace" font-size="10.5" fill="#f87171">169.254.169.254</text>
+    <text x="18" y="140" font-family="monospace" font-size="10.5" fill="#38bdf8">/latest/meta-data/iam/</text>
+    <text x="14" y="176" font-size="11.5" fill="#cbd5e1">Хакер подставляет особый</text>
+    <text x="14" y="194" font-size="11.5" fill="#cbd5e1">«внутренний адрес облака»</text>
+    <text x="14" y="212" font-size="11.5" fill="#fbbf24">вместо обычного сайта!</text>
+  </g>
+
+  <line x1="278" y1="300" x2="314" y2="300" stroke="#f87171" stroke-width="3" marker-end="url(#arrRed)"/>
+
+  <!-- Step 2 -->
+  <g transform="translate(318, 178)">
+    <rect width="250" height="245" rx="10" fill="#0d1117" stroke="#f87171"/>
+    <text x="125" y="28" font-size="14" font-weight="bold" fill="#fca5a5" text-anchor="middle">2. Сервер сам себе звонит</text>
+    <text x="14" y="56" font-size="12" fill="#cbd5e1">Веб-сервер (WAF/EC2) думает:</text>
+    <text x="14" y="74" font-size="12" fill="#cbd5e1">«Раз просят URL — скачаю!»</text>
+    <rect x="12" y="88" width="226" height="66" rx="6" fill="#020617" stroke="#475569"/>
+    <text x="20" y="110" font-family="monospace" font-size="11" fill="#34d399">GET /latest/meta-data/</text>
+    <text x="20" y="128" font-family="monospace" font-size="11" fill="#34d399">iam/security-credentials/</text>
+    <text x="20" y="144" font-family="monospace" font-size="11" fill="#fde047">WAF-Role</text>
+    <text x="14" y="176" font-size="11.5" fill="#cbd5e1">IMDSv1 верит простому GET-</text>
+    <text x="14" y="194" font-size="11.5" fill="#cbd5e1">запросу без заголовков и</text>
+    <text x="14" y="212" font-size="11.5" fill="#f87171">отдаёт секретные ключи роли!</text>
+  </g>
+
+  <line x1="569" y1="300" x2="605" y2="300" stroke="#f87171" stroke-width="3" marker-end="url(#arrRed)"/>
+
+  <!-- Step 3 -->
+  <g transform="translate(609, 178)">
+    <rect width="260" height="245" rx="10" fill="#0d1117" stroke="#f87171"/>
+    <text x="130" y="28" font-size="14" font-weight="bold" fill="#fca5a5" text-anchor="middle">3. Кража STS-ключей</text>
+    <text x="14" y="56" font-size="12" fill="#cbd5e1">Сервер возвращает ответ</text>
+    <text x="14" y="74" font-size="12" fill="#cbd5e1">прямо в браузер хакера:</text>
+    <rect x="12" y="88" width="236" height="86" rx="6" fill="#020617" stroke="#475569"/>
+    <text x="18" y="108" font-family="monospace" font-size="10.5" fill="#cbd5e1">{ "AccessKeyId": <tspan fill="#fde047">"ASIA..."</tspan>,</text>
+    <text x="18" y="126" font-family="monospace" font-size="10.5" fill="#cbd5e1">  "SecretAccessKey": <tspan fill="#f87171">"wJalr..."</tspan>,</text>
+    <text x="18" y="144" font-family="monospace" font-size="10.5" fill="#cbd5e1">  "Token": <tspan fill="#38bdf8">"IQoJb3JpZ2..."</tspan> }</text>
+    <text x="18" y="164" font-size="10.5" fill="#94a3b8">Временные ключи IAM-роли!</text>
+    <text x="14" y="196" font-size="11.5" fill="#cbd5e1">Хакер вбивает эти 3 ключа</text>
+    <text x="14" y="214" font-size="11.5" fill="#fbbf24">в свой терминал aws-cli!</text>
+  </g>
+
+  <line x1="870" y1="300" x2="906" y2="300" stroke="#f87171" stroke-width="3" marker-end="url(#arrRed)"/>
+
+  <!-- Step 4 -->
+  <g transform="translate(910, 178)">
+    <rect width="248" height="245" rx="10" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+    <text x="124" y="28" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">4. Слив базы из S3</text>
+    <text x="14" y="56" font-size="12" fill="#fecaca">У украденной роли были</text>
+    <text x="14" y="74" font-size="12" fill="#fecaca">широкие права (ошибка №2):</text>
+    <rect x="12" y="88" width="224" height="58" rx="6" fill="#1c0606" stroke="#f87171"/>
+    <text x="18" y="110" font-family="monospace" font-size="11" fill="#fde047">aws s3 sync \</text>
+    <text x="18" y="130" font-family="monospace" font-size="11" fill="#fde047">  s3://clients-data ./loot</text>
+    <text x="14" y="172" font-size="12" font-weight="bold" fill="#ffffff">Итог Capital One (2019):</text>
+    <text x="14" y="194" font-size="11.5" fill="#fecaca">• 100+ млн записей клиентов</text>
+    <text x="14" y="212" font-size="11.5" fill="#fecaca">• Штрафы более $80+ млн</text>
+  </g>
+
+  <!-- Bottom Section: Defense with IMDSv2 -->
+  <rect x="25" y="468" width="1150" height="272" rx="14" fill="#071915" stroke="#10b981" stroke-width="2"/>
+  <rect x="40" y="482" width="1120" height="32" rx="7" fill="#059669"/>
+  <text x="600" y="503" font-size="14.5" font-weight="bold" fill="#ffffff" text-anchor="middle">🛡️ КАК РАБОТАЕТ ЗАЩИТА IMDSv2 (ДВОЙНОЙ ЗАМОК ПРОТИВ SSRF)</text>
+
+  <g transform="translate(45, 530)">
+    <rect width="340" height="190" rx="10" fill="#0d1117" stroke="#34d399"/>
+    <text x="170" y="26" font-size="13.5" font-weight="bold" fill="#6ee7b7" text-anchor="middle">1. Обязательный PUT + TTL</text>
+    <text x="14" y="52" font-size="12" fill="#cbd5e1">Чтобы получить ключи в IMDSv2,</text>
+    <text x="14" y="70" font-size="12" fill="#cbd5e1">нужно СНАЧАЛА отправить запрос</text>
+    <text x="14" y="88" font-size="12" fill="#cbd5e1">методом <tspan font-weight="bold" fill="#38bdf8">PUT</tspan> (получить токен):</text>
+    <rect x="12" y="100" width="316" height="50" rx="6" fill="#020617" stroke="#334155"/>
+    <text x="18" y="120" font-family="monospace" font-size="10.5" fill="#34d399">curl -X PUT ".../latest/api/token"</text>
+    <text x="18" y="138" font-family="monospace" font-size="10.5" fill="#fde047">  -H "X-aws-ec2-metadata-token-ttl: 60"</text>
+    <text x="14" y="172" font-size="11.5" fill="#a7f3d0">Обычный SSRF умеет делать только GET!</text>
+  </g>
+
+  <line x1="388" y1="625" x2="424" y2="625" stroke="#34d399" stroke-width="3" marker-end="url(#arrGrn)"/>
+
+  <g transform="translate(428, 530)">
+    <rect width="340" height="190" rx="10" fill="#0d1117" stroke="#34d399"/>
+    <text x="170" y="26" font-size="13.5" font-weight="bold" fill="#6ee7b7" text-anchor="middle">2. Секретный Header + Хопы (Hop=1)</text>
+    <text x="14" y="52" font-size="12" fill="#cbd5e1">• Потом нужен заголовок <tspan font-family="monospace" fill="#fde047">X-aws-...</tspan></text>
+    <text x="14" y="72" font-size="12" fill="#cbd5e1">• Пакет не проходит через прокси</text>
+    <text x="14" y="90" font-size="12" fill="#cbd5e1">  и Docker (лимит IP-прыжков TTL=1).</text>
+    <text x="14" y="110" font-size="12" fill="#cbd5e1">• Если запрос пришёл с заголовком</text>
+    <text x="14" y="128" font-size="12" fill="#cbd5e1">  <tspan font-family="monospace" fill="#f87171">X-Forwarded-For</tspan> (прокси/SSRF) ➔</text>
+    <text x="14" y="152" font-size="13.5" font-weight="bold" fill="#34d399">  IMDSv2 отвечает: 401 UNAUTHORIZED!</text>
+    <text x="14" y="174" font-size="11.5" fill="#94a3b8">Взлом Capital One стал бы невозможен.</text>
+  </g>
+
+  <line x1="771" y1="625" x2="807" y2="625" stroke="#34d399" stroke-width="3" marker-end="url(#arrGrn)"/>
+
+  <g transform="translate(811, 530)">
+    <rect width="344" height="190" rx="10" fill="#0d1117" stroke="#34d399"/>
+    <text x="172" y="26" font-size="13.5" font-weight="bold" fill="#6ee7b7" text-anchor="middle">3. Как включить (Terraform + Least Priv)</text>
+    <rect x="12" y="42" width="320" height="80" rx="6" fill="#020617" stroke="#334155"/>
+    <text x="18" y="62" font-family="monospace" font-size="11" fill="#cbd5e1">metadata_options {</text>
+    <text x="18" y="80" font-family="monospace" font-size="11" fill="#34d399">  http_tokens = "required" <tspan fill="#64748b"># IMDSv2!</tspan></text>
+    <text x="18" y="98" font-family="monospace" font-size="11" fill="#fde047">  http_put_response_hop_limit = 1</text>
+    <text x="18" y="114" font-family="monospace" font-size="11" fill="#cbd5e1">}</text>
+    <text x="14" y="144" font-size="11.5" fill="#cbd5e1">+ Ограничить права роли (Least Privilege):</text>
+    <text x="14" y="162" font-size="11.5" fill="#cbd5e1">  сервер видит ТОЛЬКО 1 нужный бакет!</text>
+    <text x="14" y="180" font-size="11.5" fill="#34d399">+ Включить GuardDuty (ловит кражу ключей)</text>
+  </g>
+</svg>

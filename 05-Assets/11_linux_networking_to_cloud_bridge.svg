@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" style="background-color:#0b0f19; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+  <defs>
+    <marker id="a11" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#38bdf8"/></marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="25" y="18" width="1150" height="78" rx="14" fill="#131b2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="50" y="52" font-size="22" font-weight="bold" fill="#67e8f9">🐧 МОСТ ИЗ LINUX И СЕТЕЙ В ОБЛАКО: КАК ЗНАНИЯ С НУЛЯ РАБОТАЮТ В AWS / AZURE</text>
+  <text x="50" y="78" font-size="13.5" fill="#94a3b8">Почему облако — это НЕ магия, а твой привычный Linux и сети, управляемые через API и JSON</text>
+
+  <!-- Row 1: SSH & Keys -->
+  <g transform="translate(25, 118)">
+    <rect width="510" height="90" rx="10" fill="#111827" stroke="#3b82f6"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#93c5fd">1. В твоём Linux (Локально)</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0">Ключи <tspan font-family="monospace" fill="#fde047">ssh-keygen -t ed25519</tspan>, права <tspan font-family="monospace" fill="#34d399">chmod 400 key.pem</tspan></text>
+    <text x="18" y="72" font-size="11.5" fill="#94a3b8">Если на ключе права 777 — SSH откажется подключаться!</text>
+  </g>
+  <line x1="538" y1="163" x2="642" y2="163" stroke="#38bdf8" stroke-width="3" marker-end="url(#a11)"/>
+  <text x="590" y="152" font-size="11" font-weight="bold" fill="#38bdf8" text-anchor="middle">В ОБЛАКЕ</text>
+  <g transform="translate(648, 118)">
+    <rect width="527" height="90" rx="10" fill="#0e1a26" stroke="#22d3ee"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#22d3ee">☁️ EC2 Key Pair / AWS Session Manager</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0">Публичный ключ лежит в <tspan font-family="monospace" fill="#fde047">~/.ssh/authorized_keys</tspan> облачного сервера.</text>
+    <text x="18" y="72" font-size="11.5" fill="#34d399">Продвинутая защита: вход вообще БЕЗ SSH-порта через SSM / Bastion!</text>
+  </g>
+
+  <!-- Row 2: Ports & Firewall -->
+  <g transform="translate(25, 222)">
+    <rect width="510" height="90" rx="10" fill="#111827" stroke="#3b82f6"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#93c5fd">2. Проверка портов и файрвола в Linux</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0">Команда <tspan font-family="monospace" fill="#fde047">sudo ss -tulnp</tspan> и правила <tspan font-family="monospace" fill="#34d399">ufw / nftables</tspan></text>
+    <text x="18" y="72" font-size="11.5" fill="#94a3b8">Видишь, какая программа слушает :22 или :8080 на 0.0.0.0</text>
+  </g>
+  <line x1="538" y1="267" x2="642" y2="267" stroke="#38bdf8" stroke-width="3" marker-end="url(#a11)"/>
+  <g transform="translate(648, 222)">
+    <rect width="527" height="90" rx="10" fill="#0e1a26" stroke="#22d3ee"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#22d3ee">☁️ Security Groups (AWS) &amp; NSG (Azure)</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0">Тот же самый файрвол, только вынесенный НАРУЖУ перед сетевой картой!</text>
+    <text x="18" y="72" font-size="11.5" fill="#f87171">Ошибся в CIDR (<tspan font-family="monospace">0.0.0.0/0</tspan> вместо <tspan font-family="monospace">/32</tspan>) ➔ базу взломают боты за 5 минут!</text>
+  </g>
+
+  <!-- Row 3: Users & Permissions -->
+  <g transform="translate(25, 326)">
+    <rect width="510" height="90" rx="10" fill="#111827" stroke="#3b82f6"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#93c5fd">3. Пользователи, sudo и права в Linux</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0">Обычный юзер vs <tspan font-family="monospace" fill="#f87171">root</tspan>, файл <tspan font-family="monospace" fill="#fde047">/etc/sudoers</tspan>, бит <tspan font-family="monospace">SUID</tspan></text>
+    <text x="18" y="72" font-size="11.5" fill="#94a3b8">Нельзя работать под root постоянно — принцип минимальных прав!</text>
+  </g>
+  <line x1="538" y1="371" x2="642" y2="371" stroke="#38bdf8" stroke-width="3" marker-end="url(#a11)"/>
+  <g transform="translate(648, 326)">
+    <rect width="527" height="90" rx="10" fill="#0e1a26" stroke="#22d3ee"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#22d3ee">☁️ Root Account vs IAM Users &amp; IAM Roles</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0">Root-аккаунт облака закрываем MFA в сейф! Работаем через IAM Role.</text>
+    <text x="18" y="72" font-size="11.5" fill="#fbbf24">Вместо Linux SUID PrivEsc в облаке ищут <tspan font-family="monospace">iam:PassRole</tspan> и <tspan font-family="monospace">Action: *</tspan>!</text>
+  </g>
+
+  <!-- Row 4: Env variables & Secrets -->
+  <g transform="translate(25, 430)">
+    <rect width="510" height="90" rx="10" fill="#111827" stroke="#3b82f6"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#93c5fd">4. Переменные среды и конфиги Linux</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0">Команда <tspan font-family="monospace" fill="#fde047">env</tspan>, файл <tspan font-family="monospace" fill="#f87171">.env</tspan>, <tspan font-family="monospace">~/.aws/credentials</tspan></text>
+    <text x="18" y="72" font-size="11.5" fill="#94a3b8">Что происходит, если .env по ошибке попал в git push?</text>
+  </g>
+  <line x1="538" y1="475" x2="642" y2="475" stroke="#38bdf8" stroke-width="3" marker-end="url(#a11)"/>
+  <g transform="translate(648, 430)">
+    <rect width="527" height="90" rx="10" fill="#0e1a26" stroke="#22d3ee"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#22d3ee">☁️ Secrets Manager / Key Vault + Metadata IMDS</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0">В облаке не кладут пароли в <tspan font-family="monospace">.env</tspan>! Берут их динамически через IAM Role.</text>
+    <text x="18" y="72" font-size="11.5" fill="#34d399">Плюс <tspan font-family="monospace">Gitleaks</tspan> в Git проверяет каждый коммит на забытые ключи!</text>
+  </g>
+
+  <!-- Row 5: Logs & Processes -->
+  <g transform="translate(25, 534)">
+    <rect width="510" height="90" rx="10" fill="#111827" stroke="#3b82f6"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#93c5fd">5. Логи и контейнеры в Linux</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0"><tspan font-family="monospace" fill="#fde047">journalctl</tspan>, <tspan font-family="monospace">/var/log/auth.log</tspan>, <tspan font-family="monospace" fill="#34d399">docker ps</tspan>, <tspan font-family="monospace">curl | jq</tspan></text>
+    <text x="18" y="72" font-size="11.5" fill="#94a3b8">Умение быстро фильтровать логи (grep/jq) — главный навык админа.</text>
+  </g>
+  <line x1="538" y1="579" x2="642" y2="579" stroke="#38bdf8" stroke-width="3" marker-end="url(#a11)"/>
+  <g transform="translate(648, 534)">
+    <rect width="527" height="90" rx="10" fill="#0e1a26" stroke="#22d3ee"/>
+    <text x="18" y="28" font-size="14" font-weight="bold" fill="#22d3ee">☁️ CloudTrail, CloudWatch Logs &amp; EKS/AKS</text>
+    <text x="18" y="50" font-size="12.5" fill="#e2e8f0">Все логи серверов и API собираются в CloudWatch / Sentinel SIEM.</text>
+    <text x="18" y="72" font-size="11.5" fill="#34d399">А твой локальный Docker-контейнер 1-в-1 разворачивается в облаке K8s!</text>
+  </g>
+
+  <!-- Footer -->
+  <rect x="25" y="642" width="1150" height="94" rx="12" fill="#091d17" stroke="#10b981" stroke-width="2"/>
+  <text x="50" y="676" font-size="15" font-weight="bold" fill="#34d399">🎓 ПОЧЕМУ ЭТА СХЕМА СНИМАЕТ СТРАХ НОВИЧКА?</text>
+  <text x="50" y="702" font-size="13.5" fill="#e2e8f0">В AWS/Azure более 200 сервисов, но <tspan font-weight="bold" fill="#fde047">85% безопасности облака строятся на тех же 5 вещах из Linux</tspan>:</text>
+  <text x="50" y="724" font-size="13.5" fill="#cbd5e1">Кто входит (SSH/IAM) • Что открыто в сеть (Порты/VPC) • Кто что может читать (Права/S3) • Где лежат ключи (env/KMS) • Где логи (journal/CloudTrail).</text>
+</svg>

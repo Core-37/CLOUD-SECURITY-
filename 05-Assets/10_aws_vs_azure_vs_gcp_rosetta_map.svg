@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" style="background-color:#0b0f19; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+  <!-- Header -->
+  <rect x="25" y="18" width="1150" height="78" rx="14" fill="#131b2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="50" y="52" font-size="22" font-weight="bold" fill="#38bdf8">🗿 РОЗЕТТСКИЙ КАМЕНЬ ОБЛАКОВ: AWS ↔ MICROSOFT AZURE ↔ GOOGLE CLOUD (GCP)</text>
+  <text x="50" y="78" font-size="13.5" fill="#94a3b8">Выучи логику на одном облаке — и будешь свободно понимать термины всех трёх провайдеров!</text>
+
+  <!-- Table Header -->
+  <rect x="25" y="114" width="230" height="44" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="140" y="142" font-size="14" font-weight="bold" fill="#f8fafc" text-anchor="middle">ЧТО ЭТО (РОЛЬ)</text>
+
+  <rect x="268" y="114" width="295" height="44" rx="8" fill="#2a1d0c" stroke="#f59e0b"/>
+  <text x="415" y="142" font-size="14.5" font-weight="bold" fill="#fbbf24" text-anchor="middle">🟠 Amazon AWS</text>
+
+  <rect x="576" y="114" width="295" height="44" rx="8" fill="#0d2238" stroke="#3b82f6"/>
+  <text x="723" y="142" font-size="14.5" font-weight="bold" fill="#60a5fa" text-anchor="middle">🔵 Microsoft Azure</text>
+
+  <rect x="884" y="114" width="291" height="44" rx="8" fill="#0c261b" stroke="#10b981"/>
+  <text x="1029" y="142" font-size="14.5" font-weight="bold" fill="#34d399" text-anchor="middle">🟢 Google Cloud (GCP)</text>
+
+  <!-- Row 1: IAM -->
+  <g transform="translate(25, 168)">
+    <rect width="1150" height="58" rx="8" fill="#111827" stroke="#1e293b"/>
+    <text x="18" y="34" font-size="13" font-weight="bold" fill="#fde047">🔑 Права и Вход (IAM)</text>
+    <text x="255" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">AWS IAM + IAM Identity Center</text>
+    <text x="255" y="45" font-size="11" fill="#94a3b8">Users, Roles, STS AssumeRole</text>
+    <text x="563" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Microsoft Entra ID (экс-Azure AD)</text>
+    <text x="563" y="45" font-size="11" fill="#94a3b8">+ RBAC (Managed Identities)</text>
+    <text x="871" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Cloud IAM + Service Accounts</text>
+    <text x="871" y="45" font-size="11" fill="#94a3b8">Иерархия Org ➔ Folder ➔ Project</text>
+  </g>
+
+  <!-- Row 2: Compute -->
+  <g transform="translate(25, 234)">
+    <rect width="1150" height="58" rx="8" fill="#0f1523" stroke="#1e293b"/>
+    <text x="18" y="34" font-size="13" font-weight="bold" fill="#38bdf8">🖥️ Виртуальные серверы</text>
+    <text x="255" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Amazon EC2 + Lambda (Serverless)</text>
+    <text x="255" y="45" font-size="11" fill="#94a3b8">Вход без SSH: AWS SSM Session Mgr</text>
+    <text x="563" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Azure Virtual Machines + Functions</text>
+    <text x="563" y="45" font-size="11" fill="#94a3b8">Вход без открытого порта: Azure Bastion</text>
+    <text x="871" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Compute Engine + Cloud Functions</text>
+    <text x="871" y="45" font-size="11" fill="#94a3b8">Вход без публичного IP: IAP Tunnel</text>
+  </g>
+
+  <!-- Row 3: Storage -->
+  <g transform="translate(25, 300)">
+    <rect width="1150" height="58" rx="8" fill="#111827" stroke="#1e293b"/>
+    <text x="18" y="34" font-size="13" font-weight="bold" fill="#fbbf24">🪣 Облачные бакеты</text>
+    <text x="255" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Amazon S3 (Buckets)</text>
+    <text x="255" y="45" font-size="11" fill="#94a3b8">Block Public Access + Bucket Policy</text>
+    <text x="563" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Azure Blob Storage (Containers)</text>
+    <text x="563" y="45" font-size="11" fill="#94a3b8">Private access + SAS-токены</text>
+    <text x="871" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Google Cloud Storage (GCS)</text>
+    <text x="871" y="45" font-size="11" fill="#94a3b8">Uniform Bucket-Level Access</text>
+  </g>
+
+  <!-- Row 4: Network -->
+  <g transform="translate(25, 366)">
+    <rect width="1150" height="58" rx="8" fill="#0f1523" stroke="#1e293b"/>
+    <text x="18" y="34" font-size="13" font-weight="bold" fill="#c084fc">🌐 Сеть и Файрволы</text>
+    <text x="255" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">VPC + Security Groups + NACL</text>
+    <text x="255" y="45" font-size="11" fill="#94a3b8">Периметр: AWS WAF + Shield</text>
+    <text x="563" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">VNet + NSG (Network Security Group)</text>
+    <text x="563" y="45" font-size="11" fill="#94a3b8">Периметр: Azure Firewall + Front Door</text>
+    <text x="871" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">VPC + VPC Firewall Rules</text>
+    <text x="871" y="45" font-size="11" fill="#94a3b8">Периметр: Cloud Armor (WAF/DDoS)</text>
+  </g>
+
+  <!-- Row 5: KMS & Secrets -->
+  <g transform="translate(25, 432)">
+    <rect width="1150" height="58" rx="8" fill="#111827" stroke="#1e293b"/>
+    <text x="18" y="34" font-size="13" font-weight="bold" fill="#f472b6">🔐 Ключи и Секреты</text>
+    <text x="255" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">AWS KMS + Secrets Manager</text>
+    <text x="255" y="45" font-size="11" fill="#94a3b8">Авто-ротация паролей от БД</text>
+    <text x="563" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Azure Key Vault</text>
+    <text x="563" y="45" font-size="11" fill="#94a3b8">Единый сейф для ключей и сертификатов</text>
+    <text x="871" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Cloud KMS + Secret Manager</text>
+    <text x="871" y="45" font-size="11" fill="#94a3b8">Шифрование по умолчанию везде</text>
+  </g>
+
+  <!-- Row 6: Logs & SIEM -->
+  <g transform="translate(25, 498)">
+    <rect width="1150" height="58" rx="8" fill="#0f1523" stroke="#1e293b"/>
+    <text x="18" y="34" font-size="13" font-weight="bold" fill="#34d399">📹 Логи, Детект и SIEM</text>
+    <text x="255" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">CloudTrail + GuardDuty + Sec Hub</text>
+    <text x="255" y="45" font-size="11" fill="#94a3b8">Аудит: AWS Config + Inspector</text>
+    <text x="563" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Activity Log + Defender + Sentinel</text>
+    <text x="563" y="45" font-size="11" fill="#94a3b8">Мощнейший облачный SIEM на базе KQL!</text>
+    <text x="871" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Cloud Audit Logs + Chronicle (SecOps)</text>
+    <text x="871" y="45" font-size="11" fill="#94a3b8">CSPM: Security Command Center</text>
+  </g>
+
+  <!-- Row 7: Kubernetes -->
+  <g transform="translate(25, 564)">
+    <rect width="1150" height="58" rx="8" fill="#111827" stroke="#1e293b"/>
+    <text x="18" y="34" font-size="13" font-weight="bold" fill="#67e8f9">🐳 Управляемый K8s</text>
+    <text x="255" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Amazon EKS</text>
+    <text x="255" y="45" font-size="11" fill="#94a3b8">IRSA (IAM Roles for Service Accounts)</text>
+    <text x="563" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Azure Kubernetes Service (AKS)</text>
+    <text x="563" y="45" font-size="11" fill="#94a3b8">Workload Identity + Entra RBAC</text>
+    <text x="871" y="25" font-size="12.5" font-weight="bold" fill="#f8fafc">Google Kubernetes Engine (GKE)</text>
+    <text x="871" y="45" font-size="11" fill="#94a3b8">GKE Autopilot + Binary Authorization</text>
+  </g>
+
+  <!-- Bottom Advice -->
+  <rect x="25" y="642" width="1150" height="96" rx="12" fill="#0d1424" stroke="#38bdf8" stroke-width="2"/>
+  <text x="50" y="674" font-size="15" font-weight="bold" fill="#fbbf24">💡 СОВЕТ ОТ UNIXGUY И MARIUS POSKUS: КАКОЕ ОБЛАКО ВЫБРАТЬ ПЕРВЫМ?</text>
+  <text x="50" y="700" font-size="13" fill="#e2e8f0">• <tspan font-weight="bold" fill="#fbbf24">Выбирай AWS</tspan>, если целишься в стартапы, техно-компании, DevSecOps, Terraform и большинство публичных CTF (`flAWS.cloud`, `CloudGoat`).</text>
+  <text x="50" y="722" font-size="13" fill="#e2e8f0">• <tspan font-weight="bold" fill="#60a5fa">Выбирай Azure</tspan>, если целишься в крупные банки/корпорации, Cloud SOC (`Microsoft Sentinel` + `Entra ID` очень востребованы в РФ/ЕС/США).</text>
+</svg>

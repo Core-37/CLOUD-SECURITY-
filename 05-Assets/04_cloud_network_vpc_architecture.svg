@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" style="background-color:#0b0f19; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+  <defs>
+    <marker id="aW" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#38bdf8"/></marker>
+    <marker id="aG" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#34d399"/></marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="25" y="18" width="1150" height="76" rx="14" fill="#131b2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="50" y="50" font-size="22" font-weight="bold" fill="#38bdf8">🌐 СЕТЕВАЯ АРХИТЕКТУРА ОБЛАКА (VPC) И ПУТЬ ПАКЕТА ВНУТРИ ЗАМКА</text>
+  <text x="50" y="75" font-size="13.5" fill="#94a3b8">Почему базу данных нельзя ставить в Public Subnet и чем Security Group отличается от Network ACL</text>
+
+  <!-- Internet -->
+  <g transform="translate(25, 115)">
+    <rect width="160" height="390" rx="14" fill="#17152b" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="80" y="50" font-size="30" text-anchor="middle">🌍</text>
+    <text x="80" y="84" font-size="14" font-weight="bold" fill="#c4b5fd" text-anchor="middle">ИНТЕРНЕТ</text>
+    <text x="80" y="110" font-size="12" fill="#94a3b8" text-anchor="middle">Пользователи</text>
+    <text x="80" y="128" font-size="12" fill="#f87171" text-anchor="middle">и Хакеры</text>
+    <rect x="16" y="160" width="128" height="80" rx="8" fill="#0d1117" stroke="#6366f1"/>
+    <text x="80" y="186" font-size="12" font-weight="bold" fill="#a5b4fc" text-anchor="middle">DDoS / WAF</text>
+    <text x="80" y="206" font-size="11" fill="#cbd5e1" text-anchor="middle">Shield + AWS WAF</text>
+    <text x="80" y="224" font-size="11" fill="#cbd5e1" text-anchor="middle">Фильтр SQLi/XSS</text>
+    <text x="80" y="340" font-size="11" fill="#94a3b8" text-anchor="middle">Трафик HTTPS :443</text>
+    <text x="80" y="358" font-size="11" fill="#34d399" text-anchor="middle">Шифр TLS 1.3</text>
+  </g>
+
+  <line x1="186" y1="245" x2="225" y2="245" stroke="#38bdf8" stroke-width="3" marker-end="url(#aW)"/>
+
+  <!-- VPC Boundary -->
+  <rect x="230" y="115" width="945" height="390" rx="16" fill="#0d1424" stroke="#06b6d4" stroke-width="2.5" stroke-dasharray="8,5"/>
+  <text x="250" y="142" font-size="15" font-weight="bold" fill="#22d3ee">🏰 ТВОЙ ЧАСТНЫЙ VPC (Virtual Private Cloud) — CIDR: 10.0.0.0/16 (65,536 IP-адресов)</text>
+
+  <!-- IGW -->
+  <rect x="248" y="185" width="110" height="120" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <text x="303" y="218" font-size="13" font-weight="bold" fill="#38bdf8" text-anchor="middle">🚪 IGW</text>
+  <text x="303" y="238" font-size="11.5" fill="#e2e8f0" text-anchor="middle">Internet</text>
+  <text x="303" y="254" font-size="11.5" fill="#e2e8f0" text-anchor="middle">Gateway</text>
+  <text x="303" y="280" font-size="10.5" fill="#94a3b8" text-anchor="middle">Ворота в мир</text>
+
+  <line x1="358" y1="245" x2="395" y2="245" stroke="#38bdf8" stroke-width="3" marker-end="url(#aW)"/>
+
+  <!-- Public Subnet -->
+  <g transform="translate(400, 160)">
+    <rect width="235" height="325" rx="12" fill="#122126" stroke="#10b981" stroke-width="2"/>
+    <text x="117" y="28" font-size="13.5" font-weight="bold" fill="#34d399" text-anchor="middle">1. PUBLIC SUBNET</text>
+    <text x="117" y="47" font-family="monospace" font-size="11.5" fill="#a7f3d0" text-anchor="middle">10.0.1.0/24 (Есть выход в IGW)</text>
+
+    <rect x="16" y="65" width="203" height="80" rx="8" fill="#0d1117" stroke="#34d399"/>
+    <text x="117" y="88" font-size="12.5" font-weight="bold" fill="#6ee7b7" text-anchor="middle">⚖️ Load Balancer (ALB)</text>
+    <text x="117" y="108" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Принимает HTTPS :443 от всех</text>
+    <text x="117" y="126" font-size="11.5" fill="#cbd5e1" text-anchor="middle">и пересылает внутрь сети</text>
+
+    <rect x="16" y="160" width="203" height="72" rx="8" fill="#0d1117" stroke="#fbbf24"/>
+    <text x="117" y="182" font-size="12.5" font-weight="bold" fill="#fcd34d" text-anchor="middle">🔁 NAT Gateway</text>
+    <text x="117" y="202" font-size="11" fill="#cbd5e1" text-anchor="middle">Выпускает Private-серверы</text>
+    <text x="117" y="218" font-size="11" fill="#cbd5e1" text-anchor="middle">за патчами (вход с улицы закрыт!)</text>
+
+    <rect x="16" y="246" width="203" height="64" rx="8" fill="#0d1117" stroke="#64748b"/>
+    <text x="117" y="268" font-size="12" font-weight="bold" fill="#94a3b8" text-anchor="middle">🛡️ NACL (Шлагбаум сети)</text>
+    <text x="117" y="286" font-size="11" fill="#cbd5e1" text-anchor="middle">Stateless на границе подсети</text>
+    <text x="117" y="302" font-size="11" fill="#cbd5e1" text-anchor="middle">Блокирует чёрные IP (Deny)</text>
+  </g>
+
+  <line x1="635" y1="265" x2="672" y2="265" stroke="#34d399" stroke-width="3" marker-end="url(#aG)"/>
+
+  <!-- Private Subnet -->
+  <g transform="translate(677, 160)">
+    <rect width="235" height="325" rx="12" fill="#171b2d" stroke="#3b82f6" stroke-width="2"/>
+    <text x="117" y="28" font-size="13.5" font-weight="bold" fill="#60a5fa" text-anchor="middle">2. PRIVATE SUBNET</text>
+    <text x="117" y="47" font-family="monospace" font-size="11.5" fill="#93c5fd" text-anchor="middle">10.0.2.0/24 (Нет Public IP!)</text>
+
+    <rect x="16" y="65" width="203" height="105" rx="8" fill="#0d1117" stroke="#3b82f6"/>
+    <text x="117" y="88" font-size="12.5" font-weight="bold" fill="#93c5fd" text-anchor="middle">⚙️ Серверы (EC2 / K8s)</text>
+    <text x="117" y="108" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Прямой вход из интернета</text>
+    <text x="117" y="126" font-size="11.5" fill="#f87171" text-anchor="middle">ЗАПРЕЩЁН ФИЗИЧЕСКИ!</text>
+    <text x="117" y="148" font-size="11" fill="#34d399" text-anchor="middle">Админ входит через SSM/VPN</text>
+
+    <rect x="16" y="186" width="203" height="124" rx="8" fill="#0d1117" stroke="#22d3ee"/>
+    <text x="117" y="208" font-size="12.5" font-weight="bold" fill="#22d3ee" text-anchor="middle">🥋 Security Group (SG)</text>
+    <text x="117" y="228" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Телохранитель у самого сервера</text>
+    <text x="117" y="246" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Stateful (помнит ответ!)</text>
+    <text x="117" y="266" font-size="11" fill="#fde047" text-anchor="middle">Правило: Allow 8080 ТОЛЬКО</text>
+    <text x="117" y="282" font-size="11" fill="#fde047" text-anchor="middle">от SG балансировщика ALB!</text>
+    <text x="117" y="300" font-size="10.5" fill="#f87171" text-anchor="middle">❌ Нельзя открыть 0.0.0.0/0 на SSH!</text>
+  </g>
+
+  <line x1="912" y1="265" x2="948" y2="265" stroke="#34d399" stroke-width="3" marker-end="url(#aG)"/>
+
+  <!-- Isolated Data Subnet -->
+  <g transform="translate(953, 160)">
+    <rect width="205" height="325" rx="12" fill="#231424" stroke="#ec4899" stroke-width="2"/>
+    <text x="102" y="28" font-size="13.5" font-weight="bold" fill="#f472b6" text-anchor="middle">3. ISOLATED SUBNET</text>
+    <text x="102" y="47" font-family="monospace" font-size="11.5" fill="#fbcfe8" text-anchor="middle">10.0.3.0/24 (Сейф БД)</text>
+
+    <rect x="14" y="75" width="177" height="115" rx="8" fill="#0d1117" stroke="#ec4899"/>
+    <text x="102" y="102" font-size="13" font-weight="bold" fill="#f9a8d4" text-anchor="middle">🗄️ Базы (RDS / Redis)</text>
+    <text x="102" y="124" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Порт 5432 открыт ТОЛЬКО</text>
+    <text x="102" y="142" font-size="11.5" fill="#cbd5e1" text-anchor="middle">для Private Subnet</text>
+    <text x="102" y="164" font-size="11" fill="#34d399" text-anchor="middle">Нет выхода даже в NAT!</text>
+
+    <rect x="14" y="210" width="177" height="98" rx="8" fill="#0d1117" stroke="#a855f7"/>
+    <text x="102" y="236" font-size="12" font-weight="bold" fill="#d8b4fe" text-anchor="middle">🔌 VPC Endpoint</text>
+    <text x="102" y="256" font-size="11" fill="#cbd5e1" text-anchor="middle">Частный кабель в S3 и KMS</text>
+    <text x="102" y="274" font-size="11" fill="#cbd5e1" text-anchor="middle">Трафик НЕ выходит</text>
+    <text x="102" y="292" font-size="11" fill="#34d399" text-anchor="middle">в публичный интернет</text>
+  </g>
+
+  <!-- Comparison Table at Bottom -->
+  <rect x="25" y="525" width="1150" height="215" rx="12" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="50" y="556" font-size="16" font-weight="bold" fill="#fbbf24">🔥 ВОПРОС №1 НА ВСЕХ СОБЕСЕДОВАНИЯХ: SECURITY GROUP vs NETWORK ACL (NACL)</text>
+
+  <rect x="45" y="575" width="540" height="145" rx="10" fill="#0d1424" stroke="#22d3ee"/>
+  <text x="65" y="600" font-size="14" font-weight="bold" fill="#22d3ee">🥋 Security Group (Телохранитель у самого сервера EC2)</text>
+  <text x="65" y="624" font-size="12.5" fill="#e2e8f0">• <tspan font-weight="bold">Stateful (с памятью):</tspan> впустил гостя ➔ он может выйти обратно автоматически.</text>
+  <text x="65" y="646" font-size="12.5" fill="#e2e8f0">• Поддерживает <tspan font-weight="bold" fill="#34d399">ТОЛЬКО Allow</tspan> (запретить 1 плохой IP нельзя).</text>
+  <text x="65" y="668" font-size="12.5" fill="#e2e8f0">• Главная фишка: можно сослаться на другую SG (например, «пуск только от ALB»).</text>
+  <text x="65" y="692" font-size="12.5" fill="#f87171">• Дыра новичков: Inbound <tspan font-family="monospace">0.0.0.0/0</tspan> на порты <tspan font-family="monospace">22 (SSH)</tspan> или <tspan font-family="monospace">3389 (RDP)</tspan>!</text>
+
+  <rect x="615" y="575" width="540" height="145" rx="10" fill="#1b1426" stroke="#c084fc"/>
+  <text x="635" y="600" font-size="14" font-weight="bold" fill="#c084fc">🚧 Network ACL / NACL (Шлагбаум на въезде в квартал-подсеть)</text>
+  <text x="635" y="624" font-size="12.5" fill="#e2e8f0">• <tspan font-weight="bold">Stateless (без памяти):</tspan> нужно отдельно разрешать и вход, и выход (эфемерики 1024-65535).</text>
+  <text x="635" y="646" font-size="12.5" fill="#e2e8f0">• Поддерживает и <tspan font-weight="bold" fill="#34d399">Allow</tspan>, и <tspan font-weight="bold" fill="#f87171">Deny</tspan> (отлично для бана IP атакующего!).</text>
+  <text x="635" y="668" font-size="12.5" fill="#e2e8f0">• Правила проверяются строго сверху вниз по номеру (<tspan font-family="monospace">100, 200...</tspan>).</text>
+  <text x="635" y="692" font-size="12.5" fill="#94a3b8">• Работает до того, как пакет долетит до любого сервера внутри подсети.</text>
+</svg>

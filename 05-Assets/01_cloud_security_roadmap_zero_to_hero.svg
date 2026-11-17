@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" style="background-color:#0b0f19; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+  <defs>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrowEmerald" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="25" y="20" width="1150" height="82" rx="14" fill="#131b2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="50" y="54" font-size="23" font-weight="bold" fill="#38bdf8">🗺️ ПОЛНЫЙ МАРШРУТ CLOUD SECURITY С АБСОЛЮТНОГО НУЛЯ (ФАЗЫ 0–7)</text>
+  <text x="50" y="82" font-size="13.5" fill="#94a3b8">Синтез: CISO Marius Poskus (@mariusposkus0) + UnixGuy (r86YCwX_iU4) + 90DaysOfCyberSecurity + Awesome-Hacking</text>
+
+  <!-- Top Row: Phases 0 to 3 -->
+  <g transform="translate(25, 130)">
+    <rect width="265" height="190" rx="12" fill="#111827" stroke="#06b6d4" stroke-width="2"/>
+    <rect x="14" y="14" width="237" height="32" rx="7" fill="#0891b2"/>
+    <text x="132" y="35" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">ФАЗА 0: ПОЛИГОН (1 нед)</text>
+    <text x="18" y="68" font-size="12.5" font-weight="bold" fill="#67e8f9">Что такое Облако физически?</text>
+    <text x="18" y="90" font-size="12" fill="#cbd5e1">• Аренда чужого Linux-сервера</text>
+    <text x="18" y="110" font-size="12" fill="#cbd5e1">• Настройка Arch / Ubuntu + Git</text>
+    <text x="18" y="130" font-size="12" fill="#cbd5e1">• Docker + LocalStack (AWS дома</text>
+    <text x="18" y="148" font-size="12" fill="#cbd5e1">  бесплатно без карты банка!)</text>
+    <text x="18" y="174" font-size="11" fill="#34d399">✔ Инструменты: aws-cli, jq, git</text>
+  </g>
+
+  <line x1="292" y1="225" x2="318" y2="225" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowCyan)"/>
+
+  <g transform="translate(322, 130)">
+    <rect width="265" height="190" rx="12" fill="#111827" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="14" y="14" width="237" height="32" rx="7" fill="#2563eb"/>
+    <text x="132" y="35" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">ФАЗА 1: LINUX И СЕТИ (4 нед)</text>
+    <text x="18" y="68" font-size="12.5" font-weight="bold" fill="#93c5fd">База по UnixGuy &amp; 90Days</text>
+    <text x="18" y="90" font-size="12" fill="#cbd5e1">• SSH-ключи, chmod 400, sudo</text>
+    <text x="18" y="110" font-size="12" fill="#cbd5e1">• TCP/IP, Порты (22, 80, 443)</text>
+    <text x="18" y="130" font-size="12" fill="#cbd5e1">• Подсети CIDR (/16, /24, /32)</text>
+    <text x="18" y="148" font-size="12" fill="#cbd5e1">• DNS, HTTP, TLS, Wireshark</text>
+    <text x="18" y="174" font-size="11" fill="#34d399">✔ Лабы: Bandit 0–20 + SadServers</text>
+  </g>
+
+  <line x1="589" y1="225" x2="615" y2="225" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowCyan)"/>
+
+  <g transform="translate(619, 130)">
+    <rect width="265" height="190" rx="12" fill="#111827" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="14" y="14" width="237" height="32" rx="7" fill="#7c3aed"/>
+    <text x="132" y="35" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">ФАЗА 2: КОД И API (3 нед)</text>
+    <text x="18" y="68" font-size="12.5" font-weight="bold" fill="#c4b5fd">Языки облака и скрипты</text>
+    <text x="18" y="90" font-size="12" fill="#cbd5e1">• Bash-скрипты и jq для JSON</text>
+    <text x="18" y="110" font-size="12" fill="#cbd5e1">• JSON (IAM) и YAML (K8s)</text>
+    <text x="18" y="130" font-size="12" fill="#cbd5e1">• Python + boto3 (SDK AWS)</text>
+    <text x="18" y="148" font-size="12" fill="#cbd5e1">• Git + Gitleaks (секреты!)</text>
+    <text x="18" y="174" font-size="11" fill="#34d399">✔ Своя утилита аудита на Python</text>
+  </g>
+
+  <line x1="886" y1="225" x2="912" y2="225" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowCyan)"/>
+
+  <g transform="translate(916, 130)">
+    <rect width="260" height="190" rx="12" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="14" y="14" width="232" height="32" rx="7" fill="#d97706"/>
+    <text x="130" y="35" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">ФАЗА 3: ОБЛАЧНОЕ ЯДРО (5 нед)</text>
+    <text x="18" y="68" font-size="12.5" font-weight="bold" fill="#fcd34d">1 главное облако (AWS / Azure)</text>
+    <text x="18" y="90" font-size="12" fill="#cbd5e1">• Shared Responsibility Model</text>
+    <text x="18" y="110" font-size="12" fill="#cbd5e1">• IAM: Users, Roles, STS, MFA</text>
+    <text x="18" y="130" font-size="12" fill="#cbd5e1">• VPC: Subnets, SG vs NACL</text>
+    <text x="18" y="148" font-size="12" fill="#cbd5e1">• S3 / Blob защита + KMS ключи</text>
+    <text x="18" y="174" font-size="11" fill="#34d399">✔ Лаба №1: Аудитор IAM и S3</text>
+  </g>
+
+  <!-- Connector down from Phase 3 to Phase 4 -->
+  <path d="M 1046 322 L 1046 355 L 1046 376" stroke="#fbbf24" stroke-width="3" fill="none" marker-end="url(#arrowAmber)"/>
+
+  <!-- Bottom Row (Right to Left flow or Left to Right visually clear: let's make Phase 4 -> 5 -> 6 -> 7 left to right with clean snake path!) -->
+  <!-- Snake path from Phase 3 (1046, 322) down to y=350, left to x=157, down to Phase 4 (157, 380) -->
+  <path d="M 1046 322 L 1046 352 L 157 352 L 157 376" stroke="#22d3ee" stroke-width="3" fill="none" marker-end="url(#arrowCyan)"/>
+
+  <g transform="translate(25, 382)">
+    <rect width="265" height="195" rx="12" fill="#111827" stroke="#ef4444" stroke-width="2"/>
+    <rect x="14" y="14" width="237" height="32" rx="7" fill="#dc2626"/>
+    <text x="132" y="35" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">ФАЗА 4: АТАКИ НА ОБЛАКА (4 нед)</text>
+    <text x="18" y="68" font-size="12.5" font-weight="bold" fill="#fca5a5">Red Team глазами защитника</text>
+    <text x="18" y="90" font-size="12" fill="#cbd5e1">• Capital One: SSRF ➔ IMDSv1</text>
+    <text x="18" y="110" font-size="12" fill="#cbd5e1">• Защита: IMDSv2 (PUT Token)</text>
+    <text x="18" y="130" font-size="12" fill="#cbd5e1">• IAM PrivEsc (iam:PassRole)</text>
+    <text x="18" y="148" font-size="12" fill="#cbd5e1">• Утечки S3 &amp; Subdomain Takeover</text>
+    <text x="18" y="176" font-size="11" fill="#34d399">✔ Лабы: flAWS.cloud + Лаба №2</text>
+  </g>
+
+  <line x1="292" y1="480" x2="318" y2="480" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowCyan)"/>
+
+  <g transform="translate(322, 382)">
+    <rect width="265" height="195" rx="12" fill="#111827" stroke="#ec4899" stroke-width="2"/>
+    <rect x="14" y="14" width="237" height="32" rx="7" fill="#db2777"/>
+    <text x="132" y="35" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">ФАЗА 5: K8s &amp; DEVSECOPS (4 нед)</text>
+    <text x="18" y="68" font-size="12.5" font-weight="bold" fill="#f9a8d4">По методике Marius Poskus</text>
+    <text x="18" y="90" font-size="12" fill="#cbd5e1">• Docker: rootless, docker.sock</text>
+    <text x="18" y="110" font-size="12" fill="#cbd5e1">• Kubernetes: 4C, RBAC, Pods</text>
+    <text x="18" y="130" font-size="12" fill="#cbd5e1">• Terraform (IaC) как код</text>
+    <text x="18" y="148" font-size="12" fill="#cbd5e1">• Shift-Left: Checkov + Trivy</text>
+    <text x="18" y="176" font-size="11" fill="#34d399">✔ Лаба №3 + Kubernetes Goat</text>
+  </g>
+
+  <line x1="589" y1="480" x2="615" y2="480" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowCyan)"/>
+
+  <g transform="translate(619, 382)">
+    <rect width="265" height="195" rx="12" fill="#111827" stroke="#10b981" stroke-width="2"/>
+    <rect x="14" y="14" width="237" height="32" rx="7" fill="#059669"/>
+    <text x="132" y="35" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">ФАЗА 6: CLOUD SIEM (3 нед)</text>
+    <text x="18" y="68" font-size="12.5" font-weight="bold" fill="#6ee7b7">Blue Team &amp; Авто-защита</text>
+    <text x="18" y="90" font-size="12" fill="#cbd5e1">• Логи: CloudTrail &amp; VPC Flow</text>
+    <text x="18" y="110" font-size="12" fill="#cbd5e1">• Детект: GuardDuty / Sentinel</text>
+    <text x="18" y="130" font-size="12" fill="#cbd5e1">• Аудит CSPM: Prowler / ScoutSuite</text>
+    <text x="18" y="148" font-size="12" fill="#cbd5e1">• Авто-блок: EventBridge + Lambda</text>
+    <text x="18" y="176" font-size="11" fill="#34d399">✔ Отчёт аудита CIS Benchmark</text>
+  </g>
+
+  <line x1="886" y1="480" x2="912" y2="480" stroke="#34d399" stroke-width="3" marker-end="url(#arrowEmerald)"/>
+
+  <g transform="translate(916, 382)">
+    <rect width="260" height="195" rx="12" fill="#111827" stroke="#22c55e" stroke-width="2.5"/>
+    <rect x="14" y="14" width="232" height="32" rx="7" fill="#16a34a"/>
+    <text x="130" y="35" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">ФАЗА 7: ОФФЕР (Без оплаты)</text>
+    <text x="18" y="68" font-size="12.5" font-weight="bold" fill="#86efac">Proof over Paper (Портфолио)</text>
+    <text x="18" y="90" font-size="12" fill="#cbd5e1">• Бесплатные бейджи (AWS/MS/</text>
+    <text x="18" y="110" font-size="12" fill="#cbd5e1">  Fortinet NSE 1-3 / Qualys)</text>
+    <text x="18" y="130" font-size="12" fill="#cbd5e1">• Стажировки Forage (AWS/AIG)</text>
+    <text x="18" y="148" font-size="12" fill="#cbd5e1">• 5 проектов на GitHub</text>
+    <text x="18" y="176" font-size="11" fill="#fde047">🎯 Cloud SOC / DevSecOps / Junior</text>
+  </g>
+
+  <!-- Bottom Strategy Banner -->
+  <rect x="25" y="605" width="1150" height="130" rx="14" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <text x="50" y="638" font-size="16" font-weight="bold" fill="#fbbf24">💡 ЗОЛОТОЕ ПРАВИЛО ВЫХОДА НА РАБОТУ (UnixGuy + Marius Poskus):</text>
+  <text x="50" y="666" font-size="13.5" fill="#e2e8f0">1. Вакансий «Junior Cloud Security с нуля» мало ➔ самый быстрый вход: <tspan font-weight="bold" fill="#38bdf8">Junior Cloud Ops / Junior SOC Analyst / Junior DevSecOps</tspan> уже после Фазы 3–4.</text>
+  <text x="50" y="692" font-size="13.5" fill="#e2e8f0">2. Не покупай буткемпы и платные сертификаты на старте ➔ докажи навык <tspan font-weight="bold" fill="#34d399">5 проектами Terraform + Python + GitHub</tspan> + бесплатными бейджами!</text>
+  <text x="50" y="718" font-size="13.5" fill="#e2e8f0">3. Сначала выучи <tspan font-weight="bold" fill="#f472b6">ОДНО</tspan> облако глубоко (AWS или Azure) — второе освоишь за 2 недели по нашей «Розеттской таблице».</text>
+</svg>

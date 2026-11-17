@@ -1,0 +1,36 @@
+# Секреты и ключи доступа (НИКОГДА не загружать на GitHub!)
+.env
+.env.*
+*.pem
+*.key
+*.ppk
+credentials.csv
+*accessKeys*.csv
+aws_credentials*
+azure_secrets*
+
+# Terraform локальное состояние (содержит IP, конфиги и секреты!)
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+override.tf
+
+# Python и виртуальные окружения
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Docker и локальные стенды
+localstack_data/
+*.log
+
+# ОС и редакторы
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.obsidian/workspace.json

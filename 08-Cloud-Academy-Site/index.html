@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORE-37 // Cloud Security Academy (С Нуля до Профи)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-distro-mode="both">
+
+  <!-- Top Reading Progress Bar -->
+  <div class="reading-progress-bar" id="readingProgressBar"></div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-box">
+      <div class="brand-title">
+        <span>☁️</span>
+        <span>CLOUDSEC // ACADEMY</span>
+      </div>
+      <div class="brand-subtitle">Полный курс с нуля: AWS, Azure, Linux, K8s &amp; DevSecOps</div>
+    </div>
+
+    <!-- XP & Progress Tracker -->
+    <div class="xp-widget">
+      <div class="xp-header">
+        <span>Прогресс: <span id="xpText">0 / 28 (0%)</span></span>
+        <span class="xp-rank-badge" id="xpRank">L0 Облачный Старт</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="xpFill"></div>
+      </div>
+    </div>
+
+    <!-- Dynamic Navigation List -->
+    <ul class="nav-list" id="navList"></ul>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Sticky Topbar -->
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:10px; flex:1; min-width:240px;">
+        <button class="btn-action" onclick="toggleMobileSidebar()" title="Меню разделов">☰</button>
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
+          <input
+            type="text"
+            id="globalSearchInput"
+            class="search-input"
+            placeholder="Поиск по курсу (IAM, IMDSv2, CIDR, S3, Terraform, GuardDuty)..."
+            oninput="handleGlobalSearch(this.value)"
+          >
+          <span class="search-kbd">Ctrl K</span>
+        </div>
+      </div>
+
+      <div class="topbar-controls">
+        <div class="distro-switcher" title="Фильтр команд Linux">
+          <button class="distro-btn active" data-distro="both" onclick="setDistroMode('both')">Arch + Ubuntu</button>
+          <button class="distro-btn" data-distro="arch" onclick="setDistroMode('arch')">Arch</button>
+          <button class="distro-btn" data-distro="ubuntu" onclick="setDistroMode('ubuntu')">Ubuntu</button>
+        </div>
+
+        <button class="btn-action btn-recall-trigger" onclick="toggleRecallDrawer()" title="Открыть отдельное окно маленьких вспоминанок (Alt + M)">
+          🧠 Вспоминалки <span class="kbd-mini">Alt+M</span>
+        </button>
+        <button class="btn-action" onclick="renderSection('analogies')" title="Бытовые аналогии">💡 Аналогии</button>
+        <button class="btn-action" onclick="renderSection('commands')" title="Переводчик облаков и команд">⇄ Команды</button>
+        <button class="btn-action" id="themeBtn" onclick="toggleTheme()" title="Переключить тему">☀️ Light</button>
+      </div>
+    </header>
+
+    <!-- Dynamic Section Content -->
+    <main class="content-area" id="contentArea"></main>
+  </div>
+
+  <!-- Floating Quick-Recall Window Button (Bottom Right) -->
+  <button class="recall-fab" onclick="toggleRecallDrawer()" title="Быстрые вспоминалки (Alt + M)">
+    <span>🧠</span>
+    <span>Вспоминалки</span>
+  </button>
+
+  <!-- Floating Scroll-to-Top Button -->
+  <button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Наверх">↑</button>
+
+  <!-- DEDICATED SLIDE-OUT WINDOW: "ОКНО МАЛЕНЬКИХ ВСПОМИНАНОК" -->
+  <div class="recall-backdrop" id="recallBackdrop" onclick="closeRecallDrawer()"></div>
+  <aside class="recall-drawer" id="recallDrawer" aria-label="Окно маленьких вспоминанок">
+    <div class="recall-drawer-header">
+      <div>
+        <div class="recall-drawer-title">⚡🧠 Окно Маленьких Вспоминанок</div>
+        <div class="recall-drawer-sub">Повторение за 5 секунд поверх любого урока • <span id="recallCountLabel">45</span> карточек</div>
+      </div>
+      <button class="btn-action" onclick="closeRecallDrawer()" title="Закрыть (Esc)">✕</button>
+    </div>
+
+    <div class="recall-toolbar">
+      <input
+        type="text"
+        id="recallSearchInput"
+        class="search-input"
+        style="width:100%;"
+        placeholder="🔎 Найти вспоминалку (169.254, chmod, NACL, PassRole, Checkov...)"
+        oninput="renderRecallCards()"
+      >
+      <div class="recall-controls-row">
+        <div class="recall-tags" id="recallTags">
+          <button class="tag-pill active" data-tag="all" onclick="setRecallTag('all')">Все</button>
+          <button class="tag-pill" data-tag="linux" onclick="setRecallTag('linux')">🐧 Linux</button>
+          <button class="tag-pill" data-tag="net" onclick="setRecallTag('net')">🌐 Сети</button>
+          <button class="tag-pill" data-tag="iam" onclick="setRecallTag('iam')">🔑 IAM/KMS</button>
+          <button class="tag-pill" data-tag="s3" onclick="setRecallTag('s3')">🪣 S3</button>
+          <button class="tag-pill" data-tag="attack" onclick="setRecallTag('attack')">💥 Атаки</button>
+          <button class="tag-pill" data-tag="devsecops" onclick="setRecallTag('devsecops')">🐳 K8s/TF/SIEM</button>
+          <button class="tag-pill" data-tag="custom" onclick="setRecallTag('custom')">📝 Мои</button>
+        </div>
+        <button class="btn-action" id="quizBlindBtn" onclick="toggleBlindMode()" title="Скрыть все ответы для тренировки памяти">
+          🙈 Скрыть ответы
+        </button>
+      </div>
+    </div>
+
+    <!-- Custom Personal Note Adder -->
+    <div class="recall-add-box">
+      <div class="recall-add-toggle" onclick="document.getElementById('recallAddForm').classList.toggle('open')">
+        <span>➕ Добавить свою маленькую вспоминалку</span>
+        <span>▼</span>
+      </div>
+      <form id="recallAddForm" class="recall-add-form" onsubmit="addCustomRecall(event)">
+        <input type="text" id="customQ" class="recall-input" placeholder="Короткий вопрос-триггер (напр. Порт Kubelet?)" required>
+        <input type="text" id="customA" class="recall-input" placeholder="Ответ + команда/аналогия (напр. 10250 — закрыть анонимный доступ!)" required>
+        <button type="submit" class="btn-action btn-primary-mini">💾 Сохранить в мою память</button>
+      </form>
+    </div>
+
+    <!-- Cards Container -->
+    <div class="recall-cards-list" id="recallCardsList"></div>
+  </aside>
+
+  <!-- Fullscreen Image Lightbox -->
+  <div class="lightbox" id="lightboxModal" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Увеличенная схема">
+  </div>
+
+  <!-- Course Data Modules & App Logic -->
+  <script src="data-part1-roadmap-foundation.js"></script>
+  <script src="data-part2-cloud-core-iam-vpc.js"></script>
+  <script src="data-part3-devsecops-k8s-siem.js"></script>
+  <script src="data-part4-sources-certs-career.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

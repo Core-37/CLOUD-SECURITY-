@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="100%" height="100%" style="background-color:#0b0f19; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+  <!-- Header -->
+  <rect x="25" y="20" width="1150" height="80" rx="14" fill="#131b2e" stroke="#1e293b" stroke-width="2"/>
+  <text x="50" y="54" font-size="23" font-weight="bold" fill="#38bdf8">🤝 МОДЕЛЬ РАЗДЕЛЕНИЯ ОТВЕТСТВЕННОСТИ (SHARED RESPONSIBILITY MODEL)</text>
+  <text x="50" y="80" font-size="13.5" fill="#94a3b8">За что отвечает Облако (AWS / Azure / GCP), а за что ВСЕГДА отвечаешь ты и твоя компания (Аналогия с жильём)</text>
+
+  <!-- Legend -->
+  <rect x="25" y="116" width="22" height="22" rx="4" fill="#dc2626"/>
+  <text x="55" y="132" font-size="13.5" font-weight="bold" fill="#fca5a5">ТВОЯ ОТВЕТСТВЕННОСТЬ (Security IN the Cloud — Защита внутри облака)</text>
+  <rect x="640" y="116" width="22" height="22" rx="4" fill="#0284c7"/>
+  <text x="670" y="132" font-size="13.5" font-weight="bold" fill="#7dd3fc">ОТВЕТСТВЕННОСТЬ ПРОВАЙДЕРА (Security OF the Cloud — Защита самого облака)</text>
+
+  <!-- Column 1: On-Premises -->
+  <g transform="translate(25, 160)">
+    <rect width="268" height="465" rx="12" fill="#111827" stroke="#475569" stroke-width="2"/>
+    <text x="134" y="34" font-size="16" font-weight="bold" fill="#f8fafc" text-anchor="middle">1. ON-PREMISES (Свой ЦОД)</text>
+    <text x="134" y="56" font-size="12" fill="#94a3b8" text-anchor="middle">🏠 Свой частный дом</text>
+
+    <rect x="18" y="74" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="100" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Данные и Приложения</text>
+    <rect x="18" y="122" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="148" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">IAM / Доступы / Шифрование</text>
+    <rect x="18" y="170" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="196" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">ОС (Linux/Windows) и Патчи</text>
+    <rect x="18" y="218" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="244" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Сетевые Файрволы и Порты</text>
+    <rect x="18" y="266" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="292" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Среда выполнения и Базы</text>
+    <rect x="18" y="314" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="340" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Виртуализация (Гипервизор)</text>
+    <rect x="18" y="362" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="388" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Железо, Охрана, Электричество</text>
+    <text x="134" y="438" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Сам чинишь крышу, трубы,</text>
+    <text x="134" y="454" font-size="11.5" fill="#cbd5e1" text-anchor="middle">замки и мебель — 100% на тебе</text>
+  </g>
+
+  <!-- Column 2: IaaS -->
+  <g transform="translate(318, 160)">
+    <rect width="268" height="465" rx="12" fill="#111827" stroke="#06b6d4" stroke-width="2"/>
+    <text x="134" y="34" font-size="16" font-weight="bold" fill="#22d3ee" text-anchor="middle">2. IaaS (EC2, Azure VM)</text>
+    <text x="134" y="56" font-size="12" fill="#94a3b8" text-anchor="middle">🏢 Квартира без мебели</text>
+
+    <rect x="18" y="74" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="100" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Данные и Приложения</text>
+    <rect x="18" y="122" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="148" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">IAM / Роли / Ключи / S3</text>
+    <rect x="18" y="170" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="196" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">ОС (Linux/Windows) и Патчи!</text>
+    <rect x="18" y="218" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="244" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">VPC, Security Groups, Порты</text>
+    <rect x="18" y="266" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="292" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Среда выполнения и Софт</text>
+
+    <rect x="18" y="314" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="340" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Виртуализация (Гипервизор)</text>
+    <rect x="18" y="362" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="388" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Серверы, Диски, ЦОД, Охрана</text>
+    <text x="134" y="438" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Стены провайдера, но обновлять</text>
+    <text x="134" y="454" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Linux и закрывать SSH-порт — ТЫ!</text>
+  </g>
+
+  <!-- Column 3: PaaS -->
+  <g transform="translate(612, 160)">
+    <rect width="268" height="465" rx="12" fill="#111827" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="134" y="34" font-size="16" font-weight="bold" fill="#c084fc" text-anchor="middle">3. PaaS (RDS, Lambda, AKS)</text>
+    <text x="134" y="56" font-size="12" fill="#94a3b8" text-anchor="middle">🛋️ Квартира с ремонтом</text>
+
+    <rect x="18" y="74" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="100" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Твои Данные и Код</text>
+    <rect x="18" y="122" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="148" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">IAM Политики и Шифрование</text>
+    <rect x="18" y="170" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="196" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Настройка Сети (Публичность)</text>
+
+    <rect x="18" y="218" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="244" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Среда выполнения и База ПО</text>
+    <rect x="18" y="266" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="292" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">ОС и Патчи безопасности</text>
+    <rect x="18" y="314" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="340" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Виртуализация (Гипервизор)</text>
+    <rect x="18" y="362" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="388" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Серверы, Диски, ЦОД, Охрана</text>
+    <text x="134" y="438" font-size="11.5" fill="#cbd5e1" text-anchor="middle">ОС чинит AWS/Azure, но если ты</text>
+    <text x="134" y="454" font-size="11.5" fill="#cbd5e1" text-anchor="middle">оставил БД без пароля — виноват ТЫ</text>
+  </g>
+
+  <!-- Column 4: SaaS -->
+  <g transform="translate(906, 160)">
+    <rect width="268" height="465" rx="12" fill="#111827" stroke="#10b981" stroke-width="2"/>
+    <text x="134" y="34" font-size="16" font-weight="bold" fill="#34d399" text-anchor="middle">4. SaaS (M365, Gmail, Slack)</text>
+    <text x="134" y="56" font-size="12" fill="#94a3b8" text-anchor="middle">🏨 Номер в отеле</text>
+
+    <rect x="18" y="74" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="100" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Аккаунты, MFA и Права юзеров</text>
+    <rect x="18" y="122" width="232" height="42" rx="6" fill="#991b1b" stroke="#f87171"/>
+    <text x="134" y="148" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Секретность данных (DLP)</text>
+
+    <rect x="18" y="170" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="196" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Код приложения и Интерфейс</text>
+    <rect x="18" y="218" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="244" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Среда выполнения и Хранилище</text>
+    <rect x="18" y="266" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="292" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">ОС и Патчи безопасности</text>
+    <rect x="18" y="314" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="340" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Сеть и Защита от DDoS</text>
+    <rect x="18" y="362" width="232" height="42" rx="6" fill="#0369a1" stroke="#38bdf8"/>
+    <text x="134" y="388" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">Серверы, Диски, ЦОД, Охрана</text>
+    <text x="134" y="438" font-size="11.5" fill="#cbd5e1" text-anchor="middle">Отель чинит всё, но если ты отдал</text>
+    <text x="134" y="454" font-size="11.5" fill="#cbd5e1" text-anchor="middle">ключ от номера без MFA — украдут</text>
+  </g>
+
+  <!-- Bottom takeaway -->
+  <rect x="25" y="645" width="1150" height="90" rx="12" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+  <text x="50" y="678" font-size="15.5" font-weight="bold" fill="#fbbf24">⚠️ ГЛАВНЫЙ ВЫВОД (99% взломов облаков — НЕ взлом Amazon/Microsoft, а ошибки клиента!):</text>
+  <text x="50" y="704" font-size="13.5" fill="#e2e8f0">• Арендовал IaaS/PaaS и забыл закрыть S3-бакет, дал IAM-роли <tspan fill="#f87171" font-family="monospace">"Action": "*"</tspan> или не включил MFA = виноват <tspan font-weight="bold" fill="#f87171">КЛИЕНТ</tspan>.</text>
+  <text x="50" y="724" font-size="13.5" fill="#e2e8f0">• Работа специалиста по Cloud Security — защищать именно верхнюю красную зону («Security IN the Cloud»).</text>
+</svg>
