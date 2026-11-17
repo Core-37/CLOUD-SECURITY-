@@ -1,13 +1,13 @@
-# 🐙 Карточка Оформления Нового GitHub-Репозитория (`Cloud-Security-37`)
+# 🐙 Карточка Оформления Нового GitHub-Репозитория (`CLOUD-SECURITY-`)
 
-Локальный Git в этой папке уже инициализирован на ветке `main`, коммит создан и удалённый адрес привязан к `https://github.com/Core-37/Cloud-Security-37.git`.
+Локальный Git в этой папке уже инициализирован на ветке `main`, коммит создан и удалённый адрес привязан к `https://github.com/Core-37/CLOUD-SECURITY-.git`.
 
 ---
 
-## Шаг 1. Создай пустой репозиторий на GitHub
-Перейди по ссылке: https://github.com/new (под аккаунтом **Core-37**) и заполни поля:
+## Шаг 1. Настройки репозитория на GitHub (`Core-37/CLOUD-SECURITY-`)
+Перейди в репозиторий https://github.com/Core-37/CLOUD-SECURITY- и в блоке **About** (значок шестерёнки справа) заполни:
 
-- **Repository name:** `Cloud-Security-37` *(или другое имя — тогда передай его в `./push_to_github.sh <URL>`)*
+- **Repository name:** `CLOUD-SECURITY-`
 - **Description (скопируй на выбор):**
   - *Вариант EN (рекомендуется для портфолио):*
     `Zero-to-Hero Cloud Security Course & Interactive Academy (AWS, Azure, Linux, IAM, VPC, SSRF/IMDSv2, Docker/K8s, Terraform DevSecOps, Cloud SIEM). 12 visual SVG paths, 45+ flashcards, Python labs & $0 cert alternatives.`

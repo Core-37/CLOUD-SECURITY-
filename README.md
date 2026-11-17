@@ -1,6 +1,6 @@
 <div align="center">
 
-# ☁️🛡️ Cloud Security Zero-to-Hero — Academy & Labs (`Core-37/Cloud-Security-37`)
+# ☁️🛡️ Cloud Security Zero-to-Hero — Academy & Labs (`Core-37/CLOUD-SECURITY-`)
 
 **Полный открытый курс, интерактивный учебный сайт, 12 схем атак/защит, окно быстрых вспоминанок и локальные Python-лабы по безопасности облаков (AWS, Azure, Linux, Docker, Kubernetes, Terraform DevSecOps & Cloud SIEM) с абсолютного нуля.**
 
@@ -18,7 +18,7 @@
 
 > Скопируй в настройки нового репозитория на GitHub (значок шестерёнки справа у **About**) — подробнее в [`GITHUB-INFO.md`](GITHUB-INFO.md):
 
-- **Рекомендуемое название:** `Cloud-Security-37` *(уже привязано в локальном `origin`!)*
+- **Название репозитория:** `CLOUD-SECURITY-` *(привязано в локальном `origin`: `https://github.com/Core-37/CLOUD-SECURITY-.git`)*
 - **Description (EN, для международного HR и поиска):**
   `Zero-to-Hero Cloud Security Course & Interactive Academy (AWS, Azure, Linux, IAM, VPC, SSRF/IMDSv2, Docker/K8s, Terraform DevSecOps, Cloud SIEM). 12 visual SVG paths, 45+ flashcards, Python labs & $0 cert alternatives.`
 - **Description (RU):**
@@ -82,5 +82,5 @@ python3 lab03_terraform_sec_check.py    # Мини-Checkov сканер sample_v
 
 ## 👤 Автор и Связанный Репозиторий
 - **Автор:** `Core-37` (g37)
-- **Этот репозиторий (Cloud Security):** [`Core-37/Cloud-Security-37`](https://github.com/Core-37/Cloud-Security-37)
+- **Этот репозиторий (Cloud Security):** [`Core-37/CLOUD-SECURITY-`](https://github.com/Core-37/CLOUD-SECURITY-)
 - **Первый репозиторий (AI/ML & AppSec Research Hub):** [`Core-37/Security37`](https://github.com/Core-37/Security37)
